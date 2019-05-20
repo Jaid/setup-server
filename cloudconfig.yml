@@ -60,11 +60,11 @@ packages:
   - yasm
   - python3-pip
   - psmisc
-  - ufw
   - htop
   - nano
   - unzip
-  - fail2ban
+#  - ufw
+#  - fail2ban
 manage_resolv_conf: true
 resolv_conf:
   nameservers: ["1.1.1.1", "1.0.0.1"] # v6: 2606:4700:4700::1111 2606:4700:4700::1001
@@ -87,4 +87,5 @@ write_files:
 #     address 116.203.165.60
 #     netmask 32
 runcmd:
-  - downloadJaidScript setupRoot && $_
+  - downloadJaidScript setupRoot
+  - DEBIAN_FRONTEND=noninteractive PS4='[:\$LINENO] ' bash -e -x $bashFile > /var/log/setupRoot.log 2>&1 /usr/local/bin/setupRoot
