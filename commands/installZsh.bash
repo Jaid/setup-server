@@ -15,7 +15,7 @@ gitClone lukechilds/zsh-nvm latest $ZSH_PLUGINS/nvm
 
 mkdir --parents $SRC_DIR/zsh-yarn-autocompletions
 cd $_
-download "https://github.com/g-plane/zsh-yarn-autocompletions/releases/download/v1.2.0/yarn-autocompletions_v1.2.0_linux.zip" release.zip
+downloadFile "https://github.com/g-plane/zsh-yarn-autocompletions/releases/download/v1.2.0/yarn-autocompletions_v1.2.0_linux.zip" release.zip
 unzip -o release.zip
 ./install.sh $ZSH_PLUGINS
 
