@@ -21,6 +21,7 @@ make
 make install
 
 gitClone FFmpeg/FFmpeg latest $SRC_DIR/ffmpeg
+cd $_
 PKG_CONFIG_PATH="$SRC_DIR/ffmpeg-build/lib/pkgconfig" ./configure --prefix=$SRC_DIR --bindir="$USER_BIN_DIR" --pkg-config-flags="--static" --extra-cflags="-march=native -I$SRC_DIR/ffmpeg-build/include" --extra-ldflags="-L$SRC_DIR/ffmpeg-build/lib" --extra-libs="-lpthread -lm" --enable-hardcoded-tables --enable-gpl --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-nonfree
 make
 make install
