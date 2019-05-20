@@ -5,11 +5,10 @@ users:
     ssh_authorized_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDQKcd+qJy2cHMXykMft1F8xhIsIP65aQY7TYyiS8xTpUxM2er6WiJsOk6vqPC2UzEgNeDsNEc831XplS52qFFMQP1zWQdxErVyrQXs8pD2xRRSdBBras1CXgY3DJTfvpCU80VEmTawtycJ2zaXa305KUqzNOTbvMH4rIfP27M22C2LJc6W3Ythp/lme2B1DvPIZ3QrgI0jh6M203IU+rVY/SKmQAB9r9NqRuzmJMpowi4gLePaL7665NrQNty+e6g1HCtAPj6ohqUmfVEgOc+63eV7ysgwnFWMiNLZdoUc55oQBi6K4X2BS5kaU0CL3/eSu/1LI/IBEOXEO4mVZ4ipmMCvR1X5jfSsZ6qRUD9IMAOQdz4b9hVamkt9al15xlI7bsD3pl39De2RcEiA25nYimqzw5qdXo5QywrjQt0qXfRUzvkugggg9tuNJvh9CxTeaS8+wxEzkHi+3oIjo+ACbmGnItM66LYARQ/dsqdmEcsoBLAS6ENodIaLBWJuBcYNZ2j2je/wx6bRvvYx6+MFjhxnVU/lYvvqALcZhDfJ19boTYERxqTQviYEWnoJrmR2uw00fGvYRwlFKc65UYQgu0EnoUISo7d2dezdGbO7SiEERaKSNO8oyPSrcAjiZBmFHhy7vBUGkAo7FwRW4ABSBxoRH3PCmWgI+y/sqX7wHQ== jaid.jsx+hub@gmail.com
     sudo: "ALL=(ALL) NOPASSWD: ALL"
-    shell: /usr/bin/zsh
-    ssh_import_id: jaidchen
+    #shell: /usr/bin/zsh
+    #ssh_import_id: jaidchen
 power_state:
   mode: reboot
-  timeout: 60
 package_upgrade: true
 packages:
   - build-essential
@@ -68,6 +67,14 @@ write_files:
       sudo curl --fail --silent --header "Cache-Control: no-cache" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1.bash" | sudo tee "$target"
       sudo chmod +x "$target"
       echo Added "$target"
+  - path: /etc/network/interfaces.d/60-jaid.cfg
+    permissions: 0755
+    owner: root
+    content: |
+      auto eth0:1
+      iface eth0:1 inet static
+      address 116.203.165.60
+      netmask 32
 runcmd:
   - locale-gen --purge de_DE.UTF-8 en_US.UTF-8
   - update-locale
