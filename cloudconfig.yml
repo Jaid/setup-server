@@ -6,8 +6,6 @@ users:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/4Cp9qpzDc2XNpZ9Qm69MDOHK4yAbuukwU7Ki3n6si8ZUzJXxWjGzf5mEeWVqjfHHZtbaXXFfL+1nWx9y/P2boldNKdU1Sgot18CISiFjjfdH+tUVuY3sVlKRM59AElgV2/rkIxY0on1Y9VG1iNla2gaBTKaazcUt40loPi/Cqn8O4xEh0ZX+4xwfuqCJdNX5y42+PgeW2cxT4PNAGj+uPI0Bw1HZVgMQJW0eckp4q7a5nJWUsOHW7eiUZNcE4vUmNAN1lZzNUzeL87kkFeOLZSNP0oZqaFmfL8BDpnplSOssWb2fskF/ynR5SjEWatzevNGd9y795Cl8CNWOB+ALS7/tVZVzTLkiiZJBQHSyhMCPjmqTvGnMmrD7DMKqEak9JWd8d22B93O8YV/QX+Qi3dOWkflad7tp6/xgIXSBDqlWHMF64HqF5j512776DMWnE9fU/hUOW+jMaXFRSjOx8Pyyvke1VwtlP3bHBAYVN7EIaXWPJ4AZ13nqKaORMdMJXBkCOMb+Dax8dXiRgaZytpfGBhyE7F1+d/CU2GcMS0jjcG/dbNc+PdscRrIPBBBI+xzBPZJFAscnsNwvwZvI0zqUg8Txrcf6YTvTzLxxO/KIo4byquR0fjZ43R3DZrExW1UNemqtyCm3lN3baBoMiipkw09njFBBgMmWNUvcOw== jaid.jsx@gmail.com
     sudo: "ALL=(ALL) NOPASSWD: ALL"
     # shell: /bin/bash #/usr/bin/zsh
-    lock_passwd: false
-    passwd: $5$R0ktDhinXUpZ49NI$VKwBtTPBdnAy5NlAFxYG9.V4mvAQCUGyAR85ONNCPS1
     # groups: sudo
     ssh_import_id: jaidchen
 package_upgrade: true
@@ -71,4 +69,4 @@ write_files:
 runcmd:
   - locale-gen --purge de_DE.UTF-8 en_US.UTF-8
   - update-locale
-  - downloadFile /opt/bin/setupFfmpeg
+  - downloadFile https://raw.githubusercontent.com/Jaid/setup-server/master/commands/installNode /opt/bin/installNode
