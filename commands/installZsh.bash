@@ -50,6 +50,7 @@ writeFile ~/.zshrc "
       extract
       git
       yarn-autocompletions
+      nvm
     )
     source $ZSH/oh-my-zsh.sh
     setopt histreduceblanks
