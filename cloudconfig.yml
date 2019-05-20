@@ -1,5 +1,6 @@
 #cloud-config
 hostname: jaidMain
+timezone: Europe/Berlin
 users:
   - name: jaid
     ssh_authorized_keys:
