@@ -75,5 +75,7 @@ runcmd:
   - downloadJaidScript downloadFile
   - downloadJaidScript executeDownload
   - downloadJaidScript setupUser
+  - downloadJaidScript aptGet
+  - downloadJaidScript gitClone
   - setupUser
   #- downloadJaidScript installNode && /bin/su -c $_ --login jaid
