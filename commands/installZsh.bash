@@ -5,8 +5,6 @@ set -o errexit
 SRC_DIR=~/src
 USER_BIN_DIR=~/bin
 
-aptGet install zsh
-
 ZSH=$SRC_DIR/oh-my-zsh
 ZSH_PLUGINS=$ZSH/custom/plugins
 gitClone robbyrussell/oh-my-zsh
