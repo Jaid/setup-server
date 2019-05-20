@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
+set -e
+set -o errexit
 
-$SRC_DIR=~/src
-$USER_BIN_DIR=~/bin
+$SRC_DIR=$HOME/src
+$USER_BIN_DIR=$HOME/bin
 
 aptGet install zsh
 
