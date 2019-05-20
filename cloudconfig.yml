@@ -38,10 +38,20 @@ packages:
   - libmp3lame-dev
   - libopus-dev
   - libass-dev
+  - autoconf
+  - libtool
   - x264
   - vpx-tools
   - libfreetype6-dev
   - libvorbis-dev
+  - automake
+  - git-core
+  - libsdl2-dev
+  - libva-dev
+  - libvdpau-dev
+  - libxcb1-dev
+  - libxcb-shm0-dev
+  - libxcb-xfixes0-dev
   - imagemagick
   - gettext
   - cmake

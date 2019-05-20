@@ -8,13 +8,14 @@ USER_BIN_DIR=~/bin
 mkdir --parents $SRC_DIR/ffmpeg-build
 
 gitClone mstorsjo/fdk-aac
+cd $SRC_DIR/fdk-aac
 ./autogen.sh
 ./configure --prefix="$SRC_DIR/ffmpeg-build"
 make
 make install
 
 gitClone videolan/x265
-cd build/linux
+cd $SRC_DIR/x265/build/linux
 cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$SRC_DIR/ffmpeg-build" -DENABLE_SHARED=off ../../source
 make
 make install
