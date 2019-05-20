@@ -72,4 +72,6 @@ write_files:
 runcmd:
   - locale-gen --purge de_DE.UTF-8 en_US.UTF-8
   - update-locale
+  - downloadJaidScript executeDownloaded
   - downloadJaidScript installNode
+  - /bin/su -c installNode - jaid
