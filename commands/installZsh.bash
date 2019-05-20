@@ -40,7 +40,7 @@ echo "
     export LC_NAME=\$PERSONAL_LOCALE
     export LC_MESSAGES=\$LANG
     export LC_TIME=\$PERSONAL_LOCALE
-    source $HOME/.nvm/nvm.sh
+    source $HOME/src/nvm/nvm.sh
     plugins=(
       zsh-syntax-highlighting
       zsh-autosuggestions
