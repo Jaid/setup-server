@@ -41,7 +41,6 @@ echo "
     export LC_NAME=\$PERSONAL_LOCALE
     export LC_MESSAGES=\$LANG
     export LC_TIME=\$PERSONAL_LOCALE
-    source ~/lib.bash
     plugins=(
       zsh-syntax-highlighting
       zsh-autosuggestions
