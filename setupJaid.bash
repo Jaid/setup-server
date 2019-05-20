@@ -7,6 +7,5 @@ mkdir -p ~/src
 
 downloadJaidScript setupLanguage && $_
 downloadJaidScript installZsh && $_
-source ~/.zshrc
 downloadJaidScript installNode && $_
 downloadJaidScript installBat && $_
