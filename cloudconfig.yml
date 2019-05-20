@@ -8,10 +8,10 @@ users:
     # shell: /bin/bash #/usr/bin/zsh
     # groups: sudo
     ssh_import_id: jaidchen
-package_upgrade: true
 power_state:
   mode: reboot
   timeout: 60
+package_upgrade: true
 packages:
   - build-essential
   - subversion
@@ -74,4 +74,6 @@ runcmd:
   - update-locale
   - downloadJaidScript downloadFile
   - downloadJaidScript executeDownload
-  - downloadJaidScript installNode && /bin/su -c $_ --login jaid
+  - downloadJaidScript setupUser
+  - setupUser
+  #- downloadJaidScript installNode && /bin/su -c $_ --login jaid
