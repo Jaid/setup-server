@@ -1,2 +1,7 @@
-downloadJaidScript installNode &&
-  echo "ABC" | tee ~/abc.txt
+set -o errexit
+
+mkdir -p ~/bin
+mkdir -p ~/src
+
+downloadJaidScript installZsh
+installZsh

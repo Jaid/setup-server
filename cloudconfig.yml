@@ -5,7 +5,7 @@ users:
     ssh_authorized_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC0yRxU2h2h/+96OIrs0KQbe/q5KLFyEZ8msghqKo0LQRPkfFsh2qT60Qr8OIq/V0nZpqW8v0HUYUA1c4sEF3k+E0Ur1oKD5p9rmTZfPwvSMDJYKjRvN+BwKR4pzwzNfghnsK09r/foy1hDpaOZIOmM8+LtrYxtuN+DcWP8LQ5sod3nYzmTWOlHJrajn2DqtWULhoF8o83r7FqAG02n6vU84BdAZNoNTqgJx/2kLn7OQKRR4nH7CBCGdsS7WyerOWG4lEyPI9Suu9UxUcWlLCitKXIbdKG4F/NjBbsUY240IJI/xjhNK/7Ig4X5q66CcTpGqTYKSTLuhMIA/u2F1i7UzzXhNCenu5YlhoSFucSy3Gf+UiM3ZZorgEhzaONIGHsoMtgf4by1/iR7qL7Ap1j0/t3TUdiDrDAGUBLeFquo/73IHu66cLUTWF8F4WKIOGUBiEretZ/LircNUeSB9rPCNsqR0fi33sDrXsaWu3nctN1d8Tjcwy9GRHo1KhS1FbsrKj90HoSREMnsPvbU4jjUsD9oHUGb2GwaI/4kIXyFdPsgNtWTL4X66FgzIvouexprH0uo1CCIiFh1Pz/+TvwDzIiEwr6Nj1T5UXyaH89H7NjMBqctVy9h1h8GqhXpEP7SAhib43E3QKkx0lUPsd/dVtzt3yDtMsy4+f0lRFU4BQ== jaid.jsx@gmail.com
     sudo: "ALL=(ALL) NOPASSWD: ALL"
-    # shell: /bin/bash #/usr/bin/zsh
+    shell: /usr/bin/zsh
     # groups: sudo
     ssh_import_id: jaidchen
 power_state:
@@ -78,4 +78,3 @@ runcmd:
   - downloadJaidScript aptGet
   - downloadJaidScript gitClone
   - setupUser
-  #- downloadJaidScript installNode && /bin/su -c $_ --login jaid
