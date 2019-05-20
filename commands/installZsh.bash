@@ -23,7 +23,7 @@ unzip -o release.zip
 
 chmod --recursive go-w $ZSH
 
-writeFile ~/.zshrc "
+echo "
     export ZSH=$ZSH
     export ZSH_THEME=agnoster
     export LANG=en_US.UTF-8
@@ -60,4 +60,4 @@ writeFile ~/.zshrc "
     setopt globdots
     setopt extendedglob
     setopt listpacked
-    setopt rmstarsilent"
+    setopt rmstarsilent" | dd of=~/.zshrc
