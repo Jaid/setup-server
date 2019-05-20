@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
+set -o errexit
 
 user=jaid
 bashFile=/home/$user/setup.bash

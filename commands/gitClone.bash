@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+set -o errexit
 
 mkdir -p ~/src
 
