@@ -74,5 +74,4 @@ runcmd:
   - update-locale
   - downloadJaidScript downloadFile
   - downloadJaidScript executeDownload
-  - downloadJaidScript installNode
-  - /bin/su -c installNode - jaid
+  - downloadJaidScript installNode && /bin/su -c $_ --login jaid
