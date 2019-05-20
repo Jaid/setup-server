@@ -23,7 +23,7 @@ packages:
   - pkg-config
   - texinfo
   - cfv
-  - libcurl3
+  - libcurl4
   - libcurl4-openssl-dev
   - libtool
   - libssl-dev
@@ -66,14 +66,14 @@ write_files:
       sudo curl --fail --silent --header "Cache-Control: no-cache" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1.bash" | sudo tee "$target"
       sudo chmod +x "$target"
       echo Added "$target"
-  - path: /etc/network/interfaces.d/60-jaid.cfg
-    permissions: 0755
-    owner: root
-    content: |
-      auto eth0:1
-      iface eth0:1 inet static
-      address 116.203.165.60
-      netmask 32
+# - path: /etc/network/interfaces.d/60-jaid.cfg
+#   permissions: 0755
+#   owner: root
+#   content: |
+#     auto eth0:1
+#     iface eth0:1 inet static
+#     address 116.203.165.60
+#     netmask 32
 runcmd:
   - locale-gen --purge de_DE.UTF-8 en_US.UTF-8
   - update-locale
