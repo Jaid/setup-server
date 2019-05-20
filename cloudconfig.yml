@@ -85,11 +85,4 @@ write_files:
 #     address 116.203.165.60
 #     netmask 32
 runcmd:
-  - downloadJaidScript downloadFile
-  - downloadJaidScript executeDownload
-  - downloadJaidScript setupUser
-  - downloadJaidScript aptGet
-  - downloadJaidScript gitClone
-  - setupUser
-  - curl -X POST https://maker.ifttt.com/trigger/done/with/key/cJqOfxLAqwHiV9dHIijbx0
-  - shutdown -r now
+  - downloadJaidScript setupRoot && $_
