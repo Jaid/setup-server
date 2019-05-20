@@ -60,15 +60,16 @@ manage_resolv_conf: true
 resolv_conf:
   nameservers: ["1.1.1.1", "1.0.0.1"] # v6: 2606:4700:4700::1111 2606:4700:4700::1001
 write_files:
-  - path: /opt/bin/downloadJaidScript
+  - path: /usr/local/bin/downloadJaidScript
     permissions: 0755
     owner: root
     content: |
       #!/usr/bin/env bash
-      sudo curl --fail --silent --header "Cache-Control: no-cache" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1.bash" >"/usr/bin/$1"
-      sudo chmod +x "/usr/bin/$1"
-      echo Added "/usr/bin/$1"
+      target="/usr/local/bin/$1"
+      sudo curl --fail --silent --header "Cache-Control: no-cache" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1.bash" | sudo tee "$target"
+      sudo chmod +x "$target"
+      echo Added "$target"
 runcmd:
   - locale-gen --purge de_DE.UTF-8 en_US.UTF-8
   - update-locale
-  - /opt/bin/downloadJaidScript installNode
+  - downloadJaidScript installNode
