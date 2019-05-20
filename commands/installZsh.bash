@@ -13,7 +13,7 @@ gitClone robbyrussell/oh-my-zsh
 gitClone zsh-users/zsh-syntax-highlighting latest $ZSH_PLUGINS/zsh-syntax-highlighting
 gitClone zsh-users/zsh-autosuggestions latest $ZSH_PLUGINS/zsh-autosuggestions
 gitClone MichaelAquilina/zsh-you-should-use latest $ZSH_PLUGINS/you-should-use
-gitClone lukechilds/zsh-nvm latest $ZSH_PLUGINS/nvm
+gitClone lukechilds/zsh-nvm latest $ZSH_PLUGINS/zsh-nvm
 
 mkdir --parents $SRC_DIR/zsh-yarn-autocompletions
 cd $_
@@ -52,7 +52,7 @@ writeFile ~/.zshrc "
       extract
       git
       yarn-autocompletions
-      nvm
+      zsh-nvm
     )
     source $ZSH/oh-my-zsh.sh
     setopt histreduceblanks
