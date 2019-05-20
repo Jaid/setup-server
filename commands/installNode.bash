@@ -2,5 +2,8 @@
 set -e
 set -o errexit
 
-curl -L https://git.io/n-install | N_PREFIX=~/src/n sudo bash -s -- -y latest
+gitClone nvm-sh/nvm
+source ~/src/nvm.sh
+nvm install node
+
 npm install --global date-now-cli open-cli pover replace-in-file rimraf yarn json5
