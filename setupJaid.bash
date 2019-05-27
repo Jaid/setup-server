@@ -10,4 +10,4 @@ downloadJaidScript installZsh && $_
 downloadJaidScript installNode && $_
 downloadJaidScript installBat && $_
 downloadJaidScript installFfmpeg && $_
-downloadJaidScript installJaidbot && $_
+downloadJaidScript installJaidbot && $_ && jaidbot
