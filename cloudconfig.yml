@@ -90,5 +90,6 @@ write_files:
 runcmd:
   - ufw allow ssh
   - ufw --force enable
+  - service networking restart
   - downloadJaidScript setupRoot
   - DEBIAN_FRONTEND=noninteractive PS4='[:\$LINENO] ' bash -e -x $bashFile > /var/log/setupRoot.log 2>&1 /usr/local/bin/setupRoot
