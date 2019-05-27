@@ -26,6 +26,7 @@ echo "
     export LANG=en_US.UTF-8
     export PATH=\$PATH:$HOME/.yarn/bin:$USER_BIN_DIR
     export MAKEFLAGS=-j$(nproc)
+    export NODE_OPTIONS=--max_old_space_size=8000
     export LANG=en_US.UTF-8
     export PERSONAL_LOCALE=de_DE.UTF-8
     export LANGUAGE=\$LANG
