@@ -64,8 +64,8 @@ packages:
   - nano
   - unzip
   - zsh
-#  - ufw
-#  - fail2ban
+  - ufw
+  - fail2ban
 manage_resolv_conf: true
 resolv_conf:
   nameservers: ["1.1.1.1", "1.0.0.1"] # v6: 2606:4700:4700::1111 2606:4700:4700::1001
@@ -79,14 +79,16 @@ write_files:
       sudo curl --fail --silent --header "Cache-Control: no-cache" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1.bash" | sudo tee "$target"
       sudo chmod +x "$target"
       echo Added "$target"
-# - path: /etc/network/interfaces.d/60-jaid.cfg
-#   permissions: 0755
-#   owner: root
-#   content: |
-#     auto eth0:1
-#     iface eth0:1 inet static
-#     address 116.203.165.60
-#     netmask 32
+  - path: /etc/network/interfaces.d/60-jaid.cfg
+    permissions: 0755
+    owner: root
+    content: |
+      auto eth0:1
+      iface eth0:1 inet static
+        address 116.203.165.91
+        netmask 32
 runcmd:
+  - ufw allow ssh
+  - ufw --force enable
   - downloadJaidScript setupRoot
   - DEBIAN_FRONTEND=noninteractive PS4='[:\$LINENO] ' bash -e -x $bashFile > /var/log/setupRoot.log 2>&1 /usr/local/bin/setupRoot
