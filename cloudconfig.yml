@@ -60,6 +60,7 @@ packages:
   - yasm
   - python3-pip
   - psmisc
+  - aria2
   - htop
   - nano
   - unzip
