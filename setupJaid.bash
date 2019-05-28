@@ -11,3 +11,4 @@ downloadJaidScript installNode && $_ && source $HOME/src/nvm/nvm.sh
 downloadJaidScript installBat && $_
 downloadJaidScript installFfmpeg && $_
 downloadJaidScript installJaidbot && $_ && jaidbot
+downloadJaidScript installYoutubedl && $_
