@@ -2,11 +2,13 @@
 set -e
 set -o errexit
 
-downloadUrl=$(latest-github-release --owner jaid --repository jaidbot --download ".deb" | tr -d '\r\n')
-downloadFile=/tmp/jaidbot.deb
+latestTag=$(latest-github-release --owner jaid --repository jaidbot --tag | tr -d '\r\n')
+downloadUrl=https://github.com/Jaid/jaidbot/releases/download/$latestTag/jaidbot_${latestTag}_linux_x64
+downloadFile=/usr/local/bin/jaidbot
 
 downloadFile "$downloadUrl" $downloadFile
-sudo dpkg -i $downloadFile
-sudo apt-get install --fix-broken
+sudo chmod +x $downloadFile
 
-sudo installInitd updateJaidbot
+if [ ! -f /etc/init.d/updateJaidbot ]; then
+  sudo installInitd updateJaidbot
+fi
