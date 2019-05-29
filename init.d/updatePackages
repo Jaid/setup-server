@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+set -o errexit
+
+aptGet update
+aptGet upgrade

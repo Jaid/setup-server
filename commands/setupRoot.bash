@@ -9,6 +9,8 @@ downloadJaidScript aptGet
 downloadJaidScript gitClone
 downloadJaidScript installInitd
 
+installInitd updatePackages
+
 ufw allow ssh
 ufw --force enable
 service networking restart
