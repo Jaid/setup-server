@@ -89,9 +89,5 @@ write_files:
         address 116.203.165.91
         netmask 32
 runcmd:
-  - ufw allow ssh
-  - ufw --force enable
-  - service networking restart
   - downloadJaidScript setupRoot
-  - downloadJaidScript installInitd
   - DEBIAN_FRONTEND=noninteractive PS4='[:\$LINENO] ' bash -e -x $bashFile > /var/log/setupRoot.log 2>&1 /usr/local/bin/setupRoot

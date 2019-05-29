@@ -7,6 +7,13 @@ downloadJaidScript executeDownload
 downloadJaidScript setupUser
 downloadJaidScript aptGet
 downloadJaidScript gitClone
+downloadJaidScript installInitd
+
+ufw allow ssh
+ufw --force enable
+service networking restart
+
 setupUser
+
 curl -X POST https://maker.ifttt.com/trigger/done/with/key/cJqOfxLAqwHiV9dHIijbx0
 shutdown -r now
