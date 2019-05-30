@@ -8,6 +8,7 @@ downloadJaidScript setupUser
 downloadJaidScript aptGet
 downloadJaidScript gitClone
 downloadJaidScript installInitd
+downloadJaidScript installService
 
 installInitd updatePackages
 
