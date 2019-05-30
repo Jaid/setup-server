@@ -12,3 +12,8 @@ downloadJaidScript installBat && $_
 downloadJaidScript installFfmpeg && $_
 downloadJaidScript installJaidbot && $_ && jaidbot
 downloadJaidScript installYoutubeDl && $_
+
+rm ~/.bashrc
+rm ~/.bash_logout
+rm ~/.profile
+rm ~/setup.bash
