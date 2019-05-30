@@ -1,0 +1,15 @@
+[Unit]
+Description=Jaidbot
+
+[Service]
+ExecStart=/usr/local/bin/jaidbot
+User=jaid
+Group=jaid
+WorkingDirectory=/home/jaid/.config/Jaidbot
+Restart=on-failure
+RestartSec=60s
+TimeoutStartSec=60s
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
