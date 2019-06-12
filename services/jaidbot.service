@@ -3,6 +3,7 @@ Description=Jaidbot
 After=network.target
 
 [Service]
+ExecStartPre=/usr/local/bin/installJaidbot
 ExecStart=/usr/local/bin/jaidbot
 User=jaid
 Group=jaid
