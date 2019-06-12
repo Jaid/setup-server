@@ -1,0 +1,11 @@
+[Unit]
+Description=Uprade apt packages
+After=network.target
+
+[Service]
+ExecStartPre=aptGet update
+ExecStart=aptGet upgrade
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
