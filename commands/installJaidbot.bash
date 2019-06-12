@@ -12,7 +12,3 @@ sudo aptGet install --fix-broken
 
 sudo ufw allow 9411
 sudo installService jaidbot
-
-if [ ! -f /etc/init.d/updateJaidbot ]; then
-  sudo installInitd updateJaidbot
-fi
