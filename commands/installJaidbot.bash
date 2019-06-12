@@ -8,7 +8,7 @@ downloadFile=/tmp/jaidbot.deb
 
 downloadFile "$downloadUrl" $downloadFile
 sudo dpkg --install $downloadFile
-aptGet install --fix-broken
+sudo aptGet install --fix-broken
 
 sudo ufw allow 9411
 sudo installService jaidbot
