@@ -3,8 +3,8 @@ Description=Uprade apt packages
 After=network.target
 
 [Service]
-ExecStartPre=aptGet update
-ExecStart=aptGet upgrade
+ExecStartPre=/usr/local/bin/aptGet update
+ExecStart=/usr/local/bin/aptGet upgrade
 Type=oneshot
 
 [Install]
