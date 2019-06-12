@@ -11,4 +11,7 @@ sudo dpkg --install $downloadFile
 sudo aptGet install --fix-broken
 
 sudo ufw allow 9411
-sudo installService jaidbot
+
+if [ ! -f /etc/systemd/system/jaidbot.service ]; then
+  sudo installService jaidbot
+fi
