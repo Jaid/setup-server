@@ -10,7 +10,7 @@ downloadJaidScript installZsh && $_
 downloadJaidScript installNode && $_
 downloadJaidScript installBat && $_
 downloadJaidScript installFfmpeg && $_
-downloadJaidScript installJaidbot && $_ && jaidbot
+downloadJaidScript installJaidbot && $_
 downloadJaidScript installYoutubeDl && $_
 
 rm ~/.bashrc
