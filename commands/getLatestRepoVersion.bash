@@ -3,4 +3,5 @@ set -e
 set -o errexit
 
 latestTag=$(curl -sI https://github.com/$1/releases/latest | grep -iE "^Location:")
-echo "${latestTag##*/}"
+cleanedTag=$(echo "${latestTag##*/}" | tr -d '\r\n')
+echo $cleanedTag

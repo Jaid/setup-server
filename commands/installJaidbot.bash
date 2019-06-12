@@ -2,7 +2,7 @@
 set -e
 set -o errexit
 
-latestTag=$(latest-github-release --owner jaid --repository jaidbot --tag | tr -d '\r\n')
+latestTag=$(getLatestRepoVersion jaid/jaidbot | tr -d '\r\n')
 downloadUrl=https://github.com/Jaid/jaidbot/releases/download/$latestTag/jaidbot_${latestTag}_amd64.deb
 downloadFile=/tmp/jaidbot.deb
 
