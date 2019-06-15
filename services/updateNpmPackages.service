@@ -3,7 +3,7 @@ Description=Uprade npm packages
 After=network.target
 
 [Service]
-ExecStartPre=/usr/bin/ncu --global
+ExecStart=/usr/bin/ncu --global
 Type=oneshot
 
 [Install]
