@@ -1,0 +1,17 @@
+[Unit]
+Description=Tweeter Client
+After=network.target
+
+[Service]
+ExecStartPre=/usr/local/bin/installTweeterClient
+ExecStart=/usr/local/bin/tweeter-client
+User=jaid
+Group=jaid
+WorkingDirectory=/home/jaid/.config/Tweeter Client
+Restart=on-failure
+RestartSec=60s
+TimeoutStartSec=60s
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
