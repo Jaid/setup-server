@@ -3,6 +3,7 @@ Description=Tweeter Server
 After=network.target
 
 [Service]
+PermissionsStartOnly=true
 ExecStartPre=/usr/bin/npm install --global tweeter-server
 ExecStart=/usr/bin/npx tweeter-server
 Environment=NODE_ENV=production "NODE_OPTIONS=--max_old_space_size=4000"
