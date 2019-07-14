@@ -3,8 +3,9 @@ Description=Tweeter Client
 After=network.target
 
 [Service]
-ExecStartPre=/usr/local/bin/installTweeterClient
-ExecStart=/usr/local/bin/tweeter-client
+ExecStartPre=/usr/bin/npm install --global tweeter-client
+ExecStart=/usr/bin/npx tweeter-client
+Environment=NODE_ENV=production "NODE_OPTIONS=--max_old_space_size=4000"
 User=jaid
 Group=jaid
 WorkingDirectory=/home/jaid/.config/Tweeter Client
