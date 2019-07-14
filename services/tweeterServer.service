@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 PermissionsStartOnly=true
-ExecStartPre=/usr/bin/npm install --global tweeter-server
+ExecStartPre=/usr/bin/npm install --global --allow-root --unsafe-perm tweeter-server
 ExecStart=/usr/bin/npx tweeter-server
 Environment=NODE_ENV=production "NODE_OPTIONS=--max_old_space_size=4000"
 User=jaid
