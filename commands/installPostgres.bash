@@ -25,5 +25,6 @@ postgresUser=postgres
 sudo -u $postgresUser psql -c "ALTER USER $postgresUser PASSWORD '$1';"
 
 sudo replace "#* *listen_addresses = 'localhost'" "listen_addresses = '*'" /etc/postgresql/*/main/postgresql.conf
+echo "local all all md5\nhost all all 0.0.0.0/0 md5\nhost all all ::/0 md5" | sudo tee /var/lib/postgresql/11/main/pg_hba.conf
 
 sudo service postgresql restart
