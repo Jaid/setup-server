@@ -10,10 +10,8 @@ Environment=NODE_ENV=production "NODE_OPTIONS=--max_old_space_size=4000"
 User=jaid
 Group=jaid
 WorkingDirectory=/home/jaid/.config/TwitchPanels
-Restart=on-failure
-RestartSec=60s
-TimeoutStartSec=60s
 PrivateTmp=true
+Type=oneshot
 
 [Install]
 WantedBy=multi-user.target
