@@ -8,7 +8,7 @@ Restart=on-abnormal
 User=jaid
 Group=jaid
 ExecStartPre=/bin/mkdir -p /home/jaid/.config/caddy
-ExecStart=/usr/local/bin/caddy -log log.txt -agree=true
+ExecStart=/usr/local/bin/caddy -log=log.txt -agree=true -envfile=.env
 ExecReload=/bin/kill -USR1 $MAINPID
 KillMode=mixed
 KillSignal=SIGQUIT
