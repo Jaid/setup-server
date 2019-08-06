@@ -8,7 +8,7 @@ Restart=on-abnormal
 User=jaid
 Group=jaid
 ExecStartPre=/bin/mkdir -p /home/jaid/.config/caddy
-ExecStart=/usr/local/bin/caddy -log=log.txt -agree=true -envfile=.env -log=stdout -http2=false
+ExecStart=/usr/local/bin/caddy -agree=true -envfile=.env -log=stdout -http2=false
 ExecReload=/bin/kill -USR1 $MAINPID
 KillMode=mixed
 KillSignal=SIGQUIT
@@ -22,8 +22,8 @@ CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
 WorkingDirectory=/home/jaid/.config/caddy
-StandardOutput=log.txt
-StandardError=log.txt
+StandardOutput=file:log.txt
+StandardError=file:log.txt
 
 
 [Install]
