@@ -25,6 +25,5 @@ WorkingDirectory=/home/jaid/.config/caddy
 StandardOutput=file:/home/jaid/.config/caddy/log.txt
 StandardError=file:/home/jaid/.config/caddy/log.txt
 
-
 [Install]
 WantedBy=multi-user.target
