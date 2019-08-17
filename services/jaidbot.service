@@ -10,6 +10,8 @@ Environment=NODE_ENV=production "NODE_OPTIONS=--max_old_space_size=4000"
 User=jaid
 Group=jaid
 WorkingDirectory=/home/jaid/.config/Jaidbot
+StandardOutput=file:/home/jaid/.config/Jaidbot/log.txt
+StandardError=file:/home/jaid/.config/Jaidbot/log.txt
 Restart=on-failure
 RestartSec=60s
 TimeoutStartSec=60s
