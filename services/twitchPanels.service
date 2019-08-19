@@ -1,6 +1,5 @@
 [Unit]
 Description=TwitchPanels
-After=network.target
 
 [Service]
 PermissionsStartOnly=true
@@ -12,6 +11,3 @@ Group=jaid
 WorkingDirectory=/home/jaid/.config/TwitchPanels
 PrivateTmp=true
 Type=oneshot
-
-[Install]
-WantedBy=multi-user.target
