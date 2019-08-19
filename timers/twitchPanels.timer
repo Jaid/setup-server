@@ -1,0 +1,8 @@
+[Unit]
+Description=Recreate panels on twitch.tv/jaidchen hourly
+
+[Timer]
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target
