@@ -3,6 +3,7 @@ Description=Recreate panels on twitch.tv/jaidchen hourly
 
 [Timer]
 OnCalendar=hourly
+Persistent=true
 
 [Install]
 WantedBy=timers.target

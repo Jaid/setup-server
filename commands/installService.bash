@@ -11,7 +11,7 @@ if [ $timerStatusCode -eq 200 ]; then
   timerDownloadFile=/etc/systemd/system/$1.timer
   downloadFile https://raw.githubusercontent.com/Jaid/setup-server/master/timers/$1.timer $timerDownloadFile
   sudo systemctl daemon-reload
-  sudo systemctl enable $1.timer
+  sudo systemctl enable --now $1.timer
 else
   sudo systemctl daemon-reload
   sudo systemctl enable $1.service
