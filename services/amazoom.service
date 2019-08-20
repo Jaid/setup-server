@@ -1,0 +1,19 @@
+[Unit]
+Description=Amazoom
+After=network.target
+
+[Service]
+PermissionsStartOnly=true
+ExecStartPre=/usr/bin/npm install --global --allow-root --unsafe-perm amazoom
+ExecStart=/usr/bin/npx amazoom
+Environment=NODE_ENV=production "NODE_OPTIONS=--max_old_space_size=4000"
+User=jaid
+Group=jaid
+WorkingDirectory=/home/jaid/.config/Amazoom
+Restart=on-failure
+RestartSec=60s
+TimeoutStartSec=60s
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
