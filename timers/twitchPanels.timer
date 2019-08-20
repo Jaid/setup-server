@@ -2,7 +2,7 @@
 Description=Recreate panels on twitch.tv/jaidchen daily
 
 [Timer]
-OnCalendar=OnCalendar=*-*-* 20:00:00
+OnCalendar=*-*-* 20:00:00
 
 [Install]
 WantedBy=timers.target
