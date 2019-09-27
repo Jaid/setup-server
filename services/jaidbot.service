@@ -14,7 +14,7 @@ StandardOutput=file:/home/jaid/.config/Jaidbot/log.txt
 StandardError=file:/home/jaid/.config/Jaidbot/log.txt
 Restart=on-failure
 RestartSec=60s
-TimeoutStartSec=60s
+TimeoutStartSec=5m
 PrivateTmp=true
 
 [Install]

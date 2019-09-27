@@ -12,7 +12,7 @@ Group=jaid
 WorkingDirectory=/home/jaid/.config/GitHub Release Writer
 Restart=on-failure
 RestartSec=60s
-TimeoutStartSec=60s
+TimeoutStartSec=5m
 PrivateTmp=true
 
 [Install]
