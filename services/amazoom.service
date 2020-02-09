@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 PermissionsStartOnly=true
-ExecStartPre=/bin/su -c "mkdir -p /home/jaid/.config/Amazoom" jaid
+ExecStartPre=/bin/mkdir -c "mkdir -p /home/jaid/.config/Amazoom" jaid
 ExecStartPre=/usr/bin/npm install --global --allow-root --unsafe-perm amazoom
 ExecStart=/usr/bin/npx amazoom
 Environment=NODE_ENV=production "NODE_OPTIONS=--max_old_space_size=4000"
