@@ -1,0 +1,20 @@
+[Unit]
+Description=EntityServes
+After=network.target
+
+[Service]
+PermissionsStartOnly=true
+ExecStartPre=+/bin/bash "mkdir -p /home/jaid/.config/EntityServes && chmod jaid:jaid /home/jaid/.config/EntityServes"
+ExecStartPre=+/usr/bin/npm install --global --allow-root --unsafe-perm entity-serves
+ExecStart=/usr/bin/npx entity-serves
+Environment=NODE_ENV=production "NODE_OPTIONS=--max_old_space_size=4000"
+User=jaid
+Group=jaid
+WorkingDirectory=/home/jaid/.config/EntityServes
+Restart=on-failure
+RestartSec=60s
+TimeoutStartSec=5m
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
