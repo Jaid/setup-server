@@ -64,7 +64,6 @@ packages:
   - nano
   - unzip
   - zsh
-  - fail2ban
   - software-properties-common
   - ncdu
   - nethogs
