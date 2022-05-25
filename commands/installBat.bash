@@ -2,7 +2,7 @@
 set -e
 set -o errexit
 
-batVersion="0.11.0"
+batVersion="0.21.0"
 
 SRC_DIR=~/src
 mkdir --parents $SRC_DIR/bat
