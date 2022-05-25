@@ -4,6 +4,7 @@ set -o errexit
 
 mkdir -p ~/bin
 mkdir -p ~/src
+mkdir -p ~/docker
 
 downloadJaidScript setupLanguage && $_
 downloadJaidScript installZsh && $_
