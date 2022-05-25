@@ -10,8 +10,6 @@ downloadJaidScript gitClone
 downloadJaidScript getLatestRepoVersion
 downloadJaidScript installService
 
-installService updatePackages
-
 ufw allow ssh
 ufw --force enable
 service networking restart
