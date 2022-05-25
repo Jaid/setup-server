@@ -14,7 +14,6 @@ package_upgrade: true
 packages:
   - build-essential
   - subversion
-  - autoconf
   - libcppunit-dev
   - time
   - g++
