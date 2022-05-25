@@ -65,7 +65,6 @@ packages:
   - nano
   - unzip
   - zsh
-  - ufw
   - fail2ban
   - software-properties-common
   - ncdu

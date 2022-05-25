@@ -2,8 +2,8 @@
 set -e
 set -o errexit
 
-sudo ufw allow 9411
-sudo ufw allow 17441
+# sudo ufw allow 9411
+# sudo ufw allow 17441
 
 mkdir -p "/home/jaid/.config/Jaidbot"
 

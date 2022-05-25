@@ -19,7 +19,7 @@ fi
 aptGet update
 aptGet install postgresql postgresql-contrib
 
-sudo ufw allow 5432
+# sudo ufw allow 5432
 
 postgresUser=postgres
 sudo -u $postgresUser psql -c "ALTER USER $postgresUser PASSWORD '$1';"

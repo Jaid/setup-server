@@ -2,8 +2,8 @@
 set -e
 set -o errexit
 
-sudo ufw allow 18888
-sudo ufw allow 18889
+# sudo ufw allow 18888
+# sudo ufw allow 18889
 
 mkdir -p "/home/jaid/.config/Tweeter Client"
 

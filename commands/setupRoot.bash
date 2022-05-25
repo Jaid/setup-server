@@ -10,9 +10,9 @@ downloadJaidScript gitClone
 downloadJaidScript installService
 downloadJaidScript installCompose
 
-ufw allow ssh
-ufw --force enable
-service networking restart
+# ufw allow ssh
+# ufw --force enable
+# service NetworkManager restart
 
 setupUser
 

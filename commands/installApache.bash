@@ -4,8 +4,8 @@ set -o errexit
 
 aptGet install apache2
 
-sudo ufw allow 'OpenSSH'
-sudo ufw allow 'Apache Secure'
+# sudo ufw allow 'OpenSSH'
+# sudo ufw allow 'Apache Secure'
 
 sudo a2enmod ssl
 sudo a2enmod http2
