@@ -12,12 +12,6 @@ gitClone zsh-users/zsh-syntax-highlighting latest $ZSH_PLUGINS/zsh-syntax-highli
 gitClone zsh-users/zsh-autosuggestions latest $ZSH_PLUGINS/zsh-autosuggestions
 gitClone MichaelAquilina/zsh-you-should-use latest $ZSH_PLUGINS/you-should-use
 
-mkdir --parents $SRC_DIR/zsh-yarn-autocompletions
-cd $_
-downloadFile "https://github.com/g-plane/zsh-yarn-autocompletions/releases/download/v1.2.0/yarn-autocompletions_v1.2.0_linux.zip" release.zip
-unzip -o release.zip
-./install.sh $ZSH_PLUGINS
-
 chmod --recursive go-w $ZSH
 
 echo "
