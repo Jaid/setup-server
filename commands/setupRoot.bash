@@ -7,8 +7,8 @@ downloadJaidScript executeDownload
 downloadJaidScript setupUser
 downloadJaidScript aptGet
 downloadJaidScript gitClone
-downloadJaidScript getLatestRepoVersion
 downloadJaidScript installService
+downloadJaidScript installCompose
 
 ufw allow ssh
 ufw --force enable
@@ -16,5 +16,5 @@ service networking restart
 
 setupUser
 
-curl -X POST https://maker.ifttt.com/trigger/done/with/key/cJqOfxLAqwHiV9dHIijbx0
-shutdown -r now
+curl -X POST "https://discord.com/api/webhooks/579929585060413440/VfD8FlZs3VOtxFeOdLHJkjf7nzXMNnyqrFV5GXEeuYzkj2YWHiKGArjc3yUhvkdYraB3" -d '{"content":"Server done!"}' -H "Content-Type: application/json"
+reboot
