@@ -10,6 +10,22 @@ users:
     sudo: "ALL=(ALL) NOPASSWD: ALL"
     shell: /usr/bin/zsh
 ssh_genkeytypes: rsa
+apt: # See https://stackoverflow.com/a/71408252
+  conf: |
+    APT {
+      Get {
+        Assume-Yes "true";
+        Fix-Broken "true";
+      };
+    };
+    Acquire {
+      Retries "60";
+    };
+    DPkg {
+      Lock {
+        Timeout "60";
+      };
+    };
 package_upgrade: true
 packages:
   - build-essential
