@@ -2,7 +2,7 @@
 set -e
 set -o errexit
 
-ZSH_PLUGINS=$ZSH/custom/plugins
+ZSH_PLUGINS=~/oh-my-zsh/custom/plugins
 
 if [ -z ${2+x} ]; then
   echo "Using native plugin $1"
