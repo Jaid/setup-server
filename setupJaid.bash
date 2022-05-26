@@ -7,13 +7,15 @@ mkdir -p ~/src
 
 downloadJaidScript setupLanguage && $_
 downloadJaidScript installZsh && $_
-downloadJaidScript installNode && $_
-downloadJaidScript installBat && $_
-# downloadJaidScript installFfmpeg && $_
-downloadJaidScript installYtDlp && $_
 downloadJaidScript installDocker && $_
+# downloadJaidScript installCaddy && $_
+downloadJaidScript installNetdata && $_
 downloadJaidScript installGithubReleaseWriter && $_
 downloadJaidScript installHttpie && $_
+downloadJaidScript installYtDlp && $_
+downloadJaidScript installBat && $_
+downloadJaidScript installNode && $_
+# downloadJaidScript installFfmpeg && $_
 
 rm ~/.bashrc
 rm ~/.bash_logout

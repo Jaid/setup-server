@@ -42,10 +42,18 @@ export LC_TIME=\$PERSONAL_LOCALE
 
 export EDITOR=nano
 
-ZSH_COMMAND_TIME_MIN_SECONDS=15
-ZSH_COMMAND_TIME_EXCLUDE=(
+interactiveTools=(
+  ssh
   nano
+  htop
+  ncdu
+  nethogs
 )
+
+ZSH_COMMAND_TIME_MIN_SECONDS=15
+ZSH_COMMAND_TIME_EXCLUDE=$interactiveTools
+
+zbell_ignore=$interactiveTools
 
 plugins=(
 )
