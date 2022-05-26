@@ -9,7 +9,7 @@ downloadJaidScript setupLanguage && $_
 downloadJaidScript installZsh && $_
 downloadJaidScript installNode && $_
 downloadJaidScript installBat && $_
-downloadJaidScript installFfmpeg && $_
+# downloadJaidScript installFfmpeg && $_
 downloadJaidScript installYtDlp && $_
 downloadJaidScript installDocker && $_
 downloadJaidScript installGithubReleaseWriter && $_
