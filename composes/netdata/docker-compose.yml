@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  netdata:
+    image: netdata/netdata:stable
+    container_name: netdata
+    hostname: netdata.jaid.codes
+    ports:
+      - 19999:19999
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - ./volume/config:/etc/netdata
+      - ./volume/lib:/var/lib/netdata
+      - ./volume/cache:/var/cache/netdata
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: 100m
+        max-file: "3"
