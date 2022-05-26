@@ -74,8 +74,6 @@ packages:
   - yasm
   - python3-pip
   - psmisc
-  - unzip
-  - zsh
   - software-properties-common
 manage_resolv_conf: true
 resolv_conf:

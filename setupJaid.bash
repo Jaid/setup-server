@@ -21,4 +21,4 @@ rm ~/setup.bash
 
 # Nice tools
 
-aptGet install ncdu nethogs htop nano aria2
+aptGet install ncdu nethogs htop nano aria2 zip unzip

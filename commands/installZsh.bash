@@ -2,6 +2,8 @@
 set -e
 set -o errexit
 
+aptGet install zsh
+
 SRC_DIR=~/src
 USER_BIN_DIR=~/bin
 
