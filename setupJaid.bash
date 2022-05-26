@@ -13,6 +13,7 @@ downloadJaidScript installBat && $_
 downloadJaidScript installYtDlp && $_
 downloadJaidScript installDocker && $_
 downloadJaidScript installGithubReleaseWriter && $_
+downloadJaidScript installHttpie && $_
 
 rm ~/.bashrc
 rm ~/.bash_logout

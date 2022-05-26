@@ -36,6 +36,7 @@ export LC_CTYPE=\$PERSONAL_LOCALE
 export LC_NAME=\$PERSONAL_LOCALE
 export LC_MESSAGES=\$LANG
 export LC_TIME=\$PERSONAL_LOCALE
+export EDITOR=nano
 plugins=(
 )
 source $ZSH/oh-my-zsh.sh
@@ -52,3 +53,6 @@ downloadZshPlugin you-should-use MichaelAquilina/zsh-you-should-use
 enableZshPlugin command-not-found
 enableZshPlugin extract
 enableZshPlugin git
+enableZshPlugin httpie
+enableZshPlugin sudo
+enableZshPlugin zbell
