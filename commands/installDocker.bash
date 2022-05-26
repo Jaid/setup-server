@@ -5,6 +5,8 @@ set -o errexit
 mkdir -p ~/docker
 cd ~/docker
 
+aptGet install uidmap
+
 curl -fsSL https://get.docker.com/rootless -o get-docker.sh
 bash get-docker.sh
 rm get-docker.sh
