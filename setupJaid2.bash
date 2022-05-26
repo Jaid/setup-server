@@ -2,6 +2,8 @@
 set -e
 set -o errexit
 
+# This script is split into two files (setupJaid.bash, setupJaid2.bash), because I need a logout after installing Docker, doesn't work otherwise
+
 downloadJaidScript installCaddy && $_
 downloadJaidScript installNetdata && $_
 downloadJaidScript installGithubReleaseWriter && $_
