@@ -39,7 +39,6 @@ packages:
   - comerr-dev
   - pkg-config
   - texinfo
-  - cfv
   - libcurl4
   - libcurl4-openssl-dev
   - libtool
