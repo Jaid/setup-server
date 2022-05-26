@@ -85,7 +85,7 @@ write_files:
     content: |
       #!/usr/bin/env bash
       target="/usr/local/bin/$1"
-      sudo curl --fail --silent --header "Cache-Control: no-cache" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1.bash" --output "$target"
+      sudo curl --fail --silent --header "Cache-Control: no-cache, no-store" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1.bash?$(date +%s)" --output "$target"
       sudo chmod +x "$target"
       echo Added "$target"
   - path: /etc/network/interfaces.d/60-jaid.cfg
@@ -100,6 +100,6 @@ runcmd:
   - downloadJaidScript setupRoot
   - DEBIAN_FRONTEND=noninteractive PS4='[:\$LINENO] ' bash -e -x $bashFile > /var/log/setupRoot.log 2>&1 /usr/local/bin/setupRoot
 power_state:
-  delay: 30
+  delay: 1
   mode: reboot
   message: Rebooting machine
