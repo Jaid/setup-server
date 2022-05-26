@@ -42,7 +42,7 @@ export LC_TIME=\$PERSONAL_LOCALE
 
 export EDITOR=nano
 
-ZSH_COMMAND_TIME_MIN_SECONDS=5
+ZSH_COMMAND_TIME_MIN_SECONDS=15
 ZSH_COMMAND_TIME_EXCLUDE=(
   nano
 )
@@ -72,4 +72,4 @@ enableZshPlugin git
 enableZshPlugin httpie
 enableZshPlugin sudo
 enableZshPlugin zbell
-downloadZshPlugin zsh-command-time popstas/zsh-command-time
+downloadZshPlugin command-time popstas/zsh-command-time
