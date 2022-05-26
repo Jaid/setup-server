@@ -26,10 +26,6 @@ apt: # See https://stackoverflow.com/a/71408252
         Timeout "60";
       };
     };
-sources:
-  httpieSource:
-    keyserver: https://packages.httpie.io/deb/KEY.gpg
-    source: deb [trusted=yes] https://packages.httpie.io/deb ./
 package_upgrade: true
 packages:
   - build-essential

@@ -7,7 +7,7 @@ set -o errexit
 downloadJaidScript installCaddy && $_
 downloadJaidScript installNetdata && $_
 downloadJaidScript installGithubReleaseWriter && $_
-downloadJaidScript installHttpie && $_
+# downloadJaidScript installHttpie && $_
 downloadJaidScript installYtDlp && $_
 downloadJaidScript installBat && $_
 # downloadJaidScript installFfmpeg && $_
