@@ -3,8 +3,6 @@ set -e
 set -o errexit
 
 mkdir -p ~/docker/$1
+degit Jaid/setup-server/composes/$1 ~/docker/$1
 
-downloadFile=~/docker/$1/docker-compose.yml
-downloadFile https://raw.githubusercontent.com/Jaid/setup-server/master/composes/$1/docker-compose.yml $downloadFile
-
-echo Added $downloadFile
+echo Added docker-compose project: $1
