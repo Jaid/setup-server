@@ -16,7 +16,7 @@ services:
       - ./volume/lib:/var/lib/netdata
       - ./volume/cache:/var/cache/netdata
       - /etc/passwd:/host/etc/passwd:ro
-      - /etc/group:/host/etc/group:ro
+      - /etc/group:/host/etc/bzgroup:ro
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /etc/os-release:/host/etc/os-release:ro

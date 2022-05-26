@@ -7,4 +7,5 @@ mkdir -p ~/src
 
 downloadJaidScript setupLanguage && $_
 downloadJaidScript installZsh && $_
+downloadJaidScript installNode && $_
 downloadJaidScript installDocker && $_

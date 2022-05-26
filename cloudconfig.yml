@@ -104,6 +104,7 @@ write_files:
 runcmd:
   - downloadJaidScript setupRoot
   - DEBIAN_FRONTEND=noninteractive PS4='[:\$LINENO] ' bash -e -x $bashFile > /var/log/setupRoot.log 2>&1 /usr/local/bin/setupRoot
+  - rm /home/jaid/setup2.bash
 power_state:
   delay: 1
   mode: reboot
