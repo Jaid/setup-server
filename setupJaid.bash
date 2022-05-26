@@ -10,7 +10,7 @@ downloadJaidScript installZsh && $_
 downloadJaidScript installNode && $_
 downloadJaidScript installBat && $_
 downloadJaidScript installFfmpeg && $_
-downloadJaidScript installYoutubeDl && $_
+downloadJaidScript installYtDlp && $_
 downloadJaidScript installDocker && $_
 downloadJaidScript installGithubReleaseWriter && $_
 
