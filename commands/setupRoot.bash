@@ -19,5 +19,3 @@ downloadJaidScript installCompose
 setupUser
 
 curl -X POST "https://discord.com/api/webhooks/579929585060413440/VfD8FlZs3VOtxFeOdLHJkjf7nzXMNnyqrFV5GXEeuYzkj2YWHiKGArjc3yUhvkdYraB3" -d '{"content":"Server done!"}' -H "Content-Type: application/json"
-
-reboot
