@@ -4,7 +4,7 @@ set -o errexit
 
 ZSH_PLUGINS=$ZSH/custom/plugins
 
-if [ -z ${var+x} ]; then
+if [ -z ${2+x} ]; then
   echo "Using native plugin $1"
 else
   echo "Download zsh plugin: $2"
