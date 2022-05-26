@@ -9,7 +9,7 @@ downloadFile https://raw.githubusercontent.com/Jaid/setup-server/master/composes
 
 cd ~/docker/$1
 
-if [ ! id -nG "$USER" | grep -qw docker ]; then
+if ! id -nG "$USER" | grep -qw "docker"; then
   echo "Adding user $USER to group docker"
   sudo usermod -aG docker $USER
   newgrp docker
