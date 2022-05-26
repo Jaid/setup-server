@@ -18,3 +18,7 @@ rm ~/.bashrc
 rm ~/.bash_logout
 rm ~/.profile
 rm ~/setup.bash
+
+# Nice tools
+
+aptGet install ncdu nethogs htop nano aria2
