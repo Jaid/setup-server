@@ -9,12 +9,11 @@ downloadFile https://raw.githubusercontent.com/Jaid/setup-server/master/composes
 
 cd ~/docker/$1
 
-# Not needed with Docker rootless
-# if [ id -nG "$USER" | grep -qw docker ]; then
-#   echo "Adding user $USER to group docker"
-#   sudo usermod -aG docker $USER
-#   sudo service docker restart
-# fi
+if [ ! id -nG "$USER" | grep -qw docker ]; then
+  echo "Adding user $USER to group docker"
+  sudo usermod -aG docker $USER
+  newgrp docker
+fi
 
 echo Added and started $downloadFile
 cd ~
