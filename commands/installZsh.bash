@@ -72,8 +72,8 @@ setopt extendedglob
 setopt listpacked
 setopt rmstarsilent
 
-[ -f ~/.secrets ] && source ~/.secrets
-[ -f ~/.secrets.sh ] && source ~/.secrets.sh
+test -f ~/.secrets && source $_
+test -f ~/.secrets.sh && source $_
 " | dd of=~/.zshrc
 
 downloadZshPlugin zsh-autosuggestions zsh-users/zsh-autosuggestions
