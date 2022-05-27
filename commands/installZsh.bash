@@ -18,12 +18,17 @@ chmod --recursive go-w $ZSH
 
 touch ~/.secrets.sh
 
-echo "export ZSH=$ZSH
+echo "export PATH=\$PATH:$USER_BIN_DIR
+
+export ZSH=$ZSH
 export ZSH_THEME=agnoster
+
 export LANG=en_US.UTF-8
-export PATH=\$PATH:$USER_BIN_DIR
 export MAKEFLAGS=-j$(nproc)
 export NODE_OPTIONS=--max_old_space_size=8000
+
+CASE_SENSITIVE=true
+HIST_STAMPS=dd.mm.yyyy
 
 export LANG=en_US.UTF-8
 export PERSONAL_LOCALE=de_DE.UTF-8
@@ -51,9 +56,9 @@ interactiveTools=(
 )
 
 ZSH_COMMAND_TIME_MIN_SECONDS=15
-ZSH_COMMAND_TIME_EXCLUDE=$interactiveTools
+ZSH_COMMAND_TIME_EXCLUDE=\$interactiveTools
 
-zbell_ignore=$interactiveTools
+zbell_ignore=\$interactiveTools
 
 plugins=(
 )
