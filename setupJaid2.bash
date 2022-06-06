@@ -20,4 +20,4 @@ rm ~/.cloud-locale-test.skip
 
 # Nice tools
 
-aptGet install ncdu nethogs htop nano aria2 zip unzip
+aptGet install ncdu nethogs htop nano aria2 zip unzip exa
