@@ -12,7 +12,7 @@ USER_BIN_DIR=~/bin
 
 ZSH=$SRC_DIR/oh-my-zsh
 ZSH_PLUGINS=$ZSH/custom/plugins
-gitClone robbyrussell/oh-my-zsh
+gitClone ohmyzsh/ohmyzsh
 
 chmod --recursive go-w $ZSH
 
