@@ -63,7 +63,7 @@ zbell_ignore=\$interactiveTools
 plugins=(
 )
 
-source $ZSH/ohmyzsh.sh
+source $ZSH/oh-my-zsh.sh
 
 setopt histreduceblanks
 setopt histignorealldups
