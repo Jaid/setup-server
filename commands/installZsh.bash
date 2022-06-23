@@ -79,6 +79,7 @@ test -f ~/.secrets.sh && source $_
 downloadZshPlugin zsh-autosuggestions zsh-users/zsh-autosuggestions
 downloadZshPlugin zsh-syntax-highlighting zsh-users/zsh-syntax-highlighting
 downloadZshPlugin you-should-use MichaelAquilina/zsh-you-should-use
+downloadZshPlugin zsh-autocomplete marlonrichert/zsh-autocomplete
 enableZshPlugin command-not-found
 enableZshPlugin extract
 enableZshPlugin git
