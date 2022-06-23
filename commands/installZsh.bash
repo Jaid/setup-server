@@ -10,7 +10,7 @@ aptGet install zsh
 SRC_DIR=~/src
 USER_BIN_DIR=~/bin
 
-ZSH=$SRC_DIR/oh-my-zsh
+ZSH=$SRC_DIR/ohmyzsh
 ZSH_PLUGINS=$ZSH/custom/plugins
 gitClone ohmyzsh/ohmyzsh
 
@@ -63,7 +63,7 @@ zbell_ignore=\$interactiveTools
 plugins=(
 )
 
-source $ZSH/oh-my-zsh.sh
+source $ZSH/ohmyzsh.sh
 
 setopt histreduceblanks
 setopt histignorealldups
