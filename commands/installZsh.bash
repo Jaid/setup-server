@@ -18,7 +18,8 @@ chmod --recursive go-w $ZSH
 
 touch ~/.secrets.sh
 
-echo "export PATH=\$PATH:$USER_BIN_DIR
+echo "path+=(~/bin)
+export PATH
 
 export ZSH=$ZSH
 export ZSH_THEME=agnoster
@@ -26,6 +27,7 @@ export ZSH_THEME=agnoster
 export LANG=en_US.UTF-8
 export MAKEFLAGS=-j$(nproc)
 export NODE_OPTIONS=--max_old_space_size=8000
+export DISABLE_OPENCOLLECTIVE=1 # https://github.com/WebReflection/lightercollective#disabling-this-message
 
 CASE_SENSITIVE=true
 HIST_STAMPS=dd.mm.yyyy
@@ -65,12 +67,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-setopt histreduceblanks
-setopt histignorealldups
-setopt globdots
-setopt extendedglob
-setopt listpacked
-setopt rmstarsilent
+alias l="exa --long --all --group-directories-first --bytes --icons"
 
 test -f ~/.secrets && source $_
 test -f ~/.secrets.sh && source $_
