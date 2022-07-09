@@ -5,5 +5,13 @@ mkdir --parents ~/bin
 target="$binFolder/$1"
 
 sudo curl --fail --silent --header "Cache-Control: no-cache, no-store" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/files/$1?$(date +%s)" --output "$2"
+
+if [ ! -f "$target" ]; then
+  "Download failed"
+  exit 1
+fi
+
 sudo chmod +x "$target"
+sudo chown "$USER:$USER" "$target"
+
 echo Added "$target"
