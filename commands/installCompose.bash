@@ -27,4 +27,6 @@ docker compose --file "$projectFolder/docker-compose.yml" up --no-start
 
 echo "Added docker-compose project: $1"
 echo "Start with:"
-echo "docker compose --file '$projectFolder/docker-compose.yml' up --detach"
+echo "docker compose --file \"\$HOME/docker/$1/docker-compose.yml\" up --detach"
+echo "Restart with:"
+echo "docker compose --file \"\$HOME/docker/$1/docker-compose.yml\" down --remove-orphans --timeout 30 && docker compose --file \"\$HOME/docker/$1/docker-compose.yml\" up --detach"
