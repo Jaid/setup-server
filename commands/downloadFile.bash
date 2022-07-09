@@ -13,8 +13,8 @@ fi
 sudo curl --fail --silent --header 'Cache-Control: no-cache' --location --retry 3 "$1" --output "$target"
 
 if [ ! -f "$target" ]; then
-  "Download failed"
-  exit 2
+  echo "Download failed"
+  exit 1
 fi
 
 sudo chown "$USER:$USER" "$target"
