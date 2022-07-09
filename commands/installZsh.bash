@@ -31,3 +31,5 @@ enableZshPlugin extract
 enableZshPlugin git
 enableZshPlugin zbell
 downloadZshPlugin command-time popstas/zsh-command-time
+
+sudo usermod --shell /bin/zsh "$USER"
