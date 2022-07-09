@@ -1,9 +1,10 @@
 version: "3.9"
 services:
+
   netdata:
     image: netdata/netdata:stable
     container_name: netdata
-    hostname: netdata.jaid.codes
+    hostname: pi
     ports:
       - 19999:19999
     restart: unless-stopped
@@ -13,18 +14,33 @@ services:
       - apparmor:unconfined
     volumes:
       - ./volume/config:/etc/netdata
-      - ./volume/lib:/var/lib/netdata
-      - ./volume/cache:/var/cache/netdata
+      - netdataLib:/var/lib/netdata
+      - netdataCache:/var/cache/netdata
       - /etc/passwd:/host/etc/passwd:ro
       - /etc/group:/host/etc/bzgroup:ro
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /etc/os-release:/host/etc/os-release:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on:
+      - proxy
     environment:
-      - PGID=999
-    logging:
-      driver: json-file
-      options:
-        max-size: 100m
-        max-file: "3"
+      DO_NOT_TRACK: "1"
+      DOCKER_HOST: proxy:2375
+      NETDATA_CLAIM_TOKEN:
+      NETDATA_CLAIM_URL: https://app.netdata.cloud
+    cpu_shares: 10
+
+  proxy:
+    container_name: docker-socket-proxy
+    image: tecnativa/docker-socket-proxy
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      CONTAINERS: "1"
+    cpu_shares: 10
+
+volumes:
+  netdataLib:
+  netdataCache:
