@@ -9,7 +9,7 @@ if [ ! -d "$targetFolder" ]; then
   mkdir --parents "$targetFolder"
 fi
 
-curl --fail --silent --header "Cache-Control: no-cache, no-store" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1?$(date +%s)" --output "$target"
+curl --fail --header "Cache-Control: no-cache, no-store" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1.bash?$(date +%s)" --output "$target"
 
 if [ ! -f "$target" ]; then
   echo "Download failed"
