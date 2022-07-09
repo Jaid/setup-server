@@ -12,7 +12,7 @@ if [ ! -x "$(command -v docker)" ]; then
   fi
 fi
 
-projectFolder="$HOME/$1"
+projectFolder="$HOME/docker/$1"
 
 mkdir --parents "$projectFolder"
 degit "Jaid/setup-server/composes/$1" "$projectFolder"
