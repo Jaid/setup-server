@@ -11,13 +11,10 @@ downloadJaidScript installGithubReleaseWriter && $_
 downloadJaidScript installYtDlp && $_
 downloadJaidScript installBat && $_
 # downloadJaidScript installFfmpeg && $_
+downloadJaidScript installNiceTools && $_
 
 rm ~/.bashrc
 rm ~/.bash_logout
 rm ~/.profile
 rm ~/setup.bash
 rm ~/.cloud-locale-test.skip
-
-# Nice tools
-
-aptGet install ncdu nethogs htop nano aria2 zip unzip exa

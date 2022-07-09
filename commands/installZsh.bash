@@ -16,63 +16,9 @@ gitClone ohmyzsh/ohmyzsh
 
 chmod --recursive go-w $ZSH
 
-touch ~/.secrets.sh
-
-echo "path+=(~/bin)
-path+=(/usr/sbin)
-export PATH
-
-export ZSH=$ZSH
-export ZSH_THEME=agnoster
-
-export LANG=en_US.UTF-8
-export MAKEFLAGS=-j$(nproc)
-export NODE_OPTIONS=--max_old_space_size=8000
-export DISABLE_OPENCOLLECTIVE=1 # https://github.com/WebReflection/lightercollective#disabling-this-message
-
-CASE_SENSITIVE=true
-HIST_STAMPS=dd.mm.yyyy
-
-export LANG=en_US.UTF-8
-export PERSONAL_LOCALE=de_DE.UTF-8
-export LANGUAGE=\$LANG
-export LC_PAPER=\$PERSONAL_LOCALE
-export LC_ADDRESS=\$PERSONAL_LOCALE
-export LC_MONETARY=\$PERSONAL_LOCALE
-export LC_NUMERIC=\$LANG
-export LC_TELEPHONE=\$PERSONAL_LOCALE
-export LC_IDENTIFICATION=\$LANG
-export LC_MEASUREMENT=\$PERSONAL_LOCALE
-export LC_CTYPE=\$PERSONAL_LOCALE
-export LC_NAME=\$PERSONAL_LOCALE
-export LC_MESSAGES=\$LANG
-export LC_TIME=\$PERSONAL_LOCALE
-
-export EDITOR=nano
-
-interactiveTools=(
-  ssh
-  nano
-  htop
-  ncdu
-  nethogs
-)
-
-ZSH_COMMAND_TIME_MIN_SECONDS=15
-ZSH_COMMAND_TIME_EXCLUDE=\$interactiveTools
-
-zbell_ignore=\$interactiveTools
-
-plugins=(
-)
-
-source $ZSH/oh-my-zsh.sh
-
-alias l="exa --long --all --group-directories-first --bytes --icons"
-
-test -f ~/.secrets && source $_
-test -f ~/.secrets.sh && source $_
-" | dd of=~/.zshrc
+downloadJaidFile .zshrc ~/.zshrc
+downloadJaidFile .env ~/.env
+downloadJaidFile .secrets ~/.secrets
 
 downloadZshPlugin zsh-autosuggestions zsh-users/zsh-autosuggestions
 downloadZshPlugin zsh-syntax-highlighting zsh-users/zsh-syntax-highlighting
