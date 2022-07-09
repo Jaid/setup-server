@@ -2,8 +2,10 @@
 set -e
 set -o errexit
 
-mkdir -p ~/docker/$1
-degit Jaid/setup-server/composes/$1 ~/docker/$1
-docker-compose --file ~/docker/$1/docker-compose.yml up --no-start
+projectFolder="$HOME/$1"
 
-echo Added docker-compose project: $1
+mkdir --parents "$projectFolder"
+degit "Jaid/setup-server/composes/$1" "$projectFolder"
+docker compose --file "$projectFolder/docker-compose.yml" up --no-start
+
+echo "Added docker-compose project: $1"
