@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+set -o errexit
 
 binFolder=~/bin
 target="$binFolder/$1"
