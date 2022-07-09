@@ -27,7 +27,5 @@ downloadZshPlugin zsh-autocomplete marlonrichert/zsh-autocomplete
 enableZshPlugin command-not-found
 enableZshPlugin extract
 enableZshPlugin git
-enableZshPlugin httpie
-enableZshPlugin sudo
 enableZshPlugin zbell
 downloadZshPlugin command-time popstas/zsh-command-time

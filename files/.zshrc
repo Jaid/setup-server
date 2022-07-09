@@ -39,5 +39,4 @@ zstyle ':autocomplete:history-search:*' list-lines 5
 source "$ZSH/oh-my-zsh.sh"
 
 alias l="exa --long --all --group-directories-first --icons"
-alias git="hub"
 alias 'fd=fd --hidden'

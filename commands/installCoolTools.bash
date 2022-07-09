@@ -3,4 +3,4 @@ set -e
 set -o errexit
 
 aptGet update
-aptGet install ncdu nethogs htop nano aria2 zip unzip exa bonnie++
+aptGet install ncdu nethogs htop aria2 zip unzip exa bonnie++ fd-find
