@@ -14,7 +14,14 @@ fi
 
 projectFolder="$HOME/docker/$1"
 
-mkdir --parents "$projectFolder"
+if [ -d "$projectFolder" ]; then
+  backupFolder="$HOME/docker-project-$1-old"
+  echo "Project already exists, moving to $backupFolder"
+  mv "$projectFolder" "$backupFolder"
+else
+  mkdir --parents "$projectFolder"
+fi
+
 degit "Jaid/setup-server/composes/$1" "$projectFolder"
 docker compose --file "$projectFolder/docker-compose.yml" up --no-start
 
