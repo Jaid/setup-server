@@ -16,3 +16,4 @@ echo "zstyle ':completion:*:*:docker:*' option-stacking yes" >>~/.zshrc
 echo "zstyle ':completion:*:*:docker-*:*' option-stacking yes" >>~/.zshrc
 
 sudo usermod -aG docker "$USER"
+newgrp docker
