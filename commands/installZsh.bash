@@ -30,6 +30,4 @@ enableZshPlugin command-not-found
 enableZshPlugin extract
 enableZshPlugin git
 enableZshPlugin zbell
-docker-compose
-docker
 downloadZshPlugin command-time popstas/zsh-command-time
