@@ -26,3 +26,5 @@ degit "Jaid/setup-server/composes/$1" "$projectFolder"
 docker compose --file "$projectFolder/docker-compose.yml" up --no-start
 
 echo "Added docker-compose project: $1"
+echo "Start with:"
+echo "docker compose --file '$projectFolder/docker-compose.yml' up --detach"
