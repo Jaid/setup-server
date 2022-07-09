@@ -10,6 +10,8 @@ aptGet install zsh
 SRC_DIR=~/src
 USER_BIN_DIR=~/bin
 
+mkdir --parents "$SRC_DIR"
+
 ZSH=$SRC_DIR/ohmyzsh
 ZSH_PLUGINS=$ZSH/custom/plugins
 gitClone ohmyzsh/ohmyzsh
@@ -22,10 +24,12 @@ downloadJaidFile .secrets ~/.secrets
 
 downloadZshPlugin zsh-autosuggestions zsh-users/zsh-autosuggestions
 downloadZshPlugin zsh-syntax-highlighting zsh-users/zsh-syntax-highlighting
-downloadZshPlugin you-should-use MichaelAquilina/zsh-you-should-use
 downloadZshPlugin zsh-autocomplete marlonrichert/zsh-autocomplete
+downloadZshPlugin you-should-use MichaelAquilina/zsh-you-should-use
 enableZshPlugin command-not-found
 enableZshPlugin extract
 enableZshPlugin git
 enableZshPlugin zbell
+docker-compose
+docker
 downloadZshPlugin command-time popstas/zsh-command-time
