@@ -11,7 +11,7 @@ downloadJaidScript installGithubReleaseWriter && $_
 downloadJaidScript installYtDlp && $_
 downloadJaidScript installBat && $_
 # downloadJaidScript installFfmpeg && $_
-downloadJaidScript installNiceTools && $_
+downloadJaidScript installCoolTools && $_
 
 rm ~/.bashrc
 rm ~/.bash_logout
