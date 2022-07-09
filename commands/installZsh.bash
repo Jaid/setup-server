@@ -19,6 +19,7 @@ chmod --recursive go-w $ZSH
 touch ~/.secrets.sh
 
 echo "path+=(~/bin)
+path+=(/usr/sbin)
 export PATH
 
 export ZSH=$ZSH
