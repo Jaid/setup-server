@@ -4,7 +4,7 @@ set -o errexit
 
 if [ "$1" = 'dry' ]; then
   aptGet update
-  aptGet list --upgradable
+  aptGet --simulate upgrade
   sudo JUST_CHECK=1 SKIP_WARNING=1 rpi-update
 else
   aptGet update
