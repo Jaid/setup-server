@@ -5,3 +5,4 @@ set -o errexit
 aptGet update
 aptGet dist-upgrade
 sudo rpi-update
+sudo reboot
