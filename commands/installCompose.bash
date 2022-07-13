@@ -21,7 +21,7 @@ projectFolder="$HOME/docker/$1"
 composeFile="$projectFolder/docker-compose.yml"
 
 if [ -d "$projectFolder" ]; then
-  docker compose --file "$composeFile" down --remove-orphans --timeout 30 --rmi all
+  docker compose --file "$composeFile" down --remove-orphans --timeout 30 --rmi local
   backupFolder="$HOME/docker-project-$1-old"
   echo "Project already exists, moving to $backupFolder"
   mv "$projectFolder" "$backupFolder"
