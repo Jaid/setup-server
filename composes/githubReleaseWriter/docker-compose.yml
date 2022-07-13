@@ -1,5 +1,6 @@
 version: "3.9"
 services:
+
   app:
     container_name: github-release-writer
     image: jaidchen/github-release-writer
@@ -8,9 +9,6 @@ services:
       - 39410:3000
       - 39411:3001
     volumes:
-      - ./config:/home/app/.config/github-release-writer
-    logging:
-      driver: json-file
-      options:
-        max-size: 100m
-        max-file: "3"
+      - type: bind
+        source: ./volume/config
+        target: /home/app/.config/github-release-writer

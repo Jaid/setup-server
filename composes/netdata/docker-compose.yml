@@ -4,7 +4,6 @@ services:
   netdata:
     image: netdata/netdata:stable
     container_name: netdata
-    hostname: pi
     ports:
       - 19999:19999
     restart: unless-stopped
@@ -13,34 +12,38 @@ services:
     security_opt:
       - apparmor:unconfined
     volumes:
-      - ./volume/config:/etc/netdata
-      - netdataLib:/var/lib/netdata
-      - netdataCache:/var/cache/netdata
-      - /etc/passwd:/host/etc/passwd:ro
-      - /etc/group:/host/etc/bzgroup:ro
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /etc/os-release:/host/etc/os-release:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    depends_on:
-      - proxy
+      - type: bind
+        source: ./volume/config
+        target: /etc/netdata
+      - type: bind
+        source: ./volume/lib
+        target: /var/lib/netdata
+      - type: bind
+        source: ./volume/cache
+        target: /var/cache/netdata
+      - type: bind
+        source: /etc/passwd
+        target: /host/etc/passwd
+        read_only: true
+      - type: bind
+        source: /etc/group
+        target: /host/etc/bzgroup
+        read_only: true
+      - type: bind
+        source: /proc
+        target: /host/proc
+        read_only: true
+      - type: bind
+        source: /sys
+        target: /host/sys
+        read_only: true
+      - type: bind
+        source: /etc/os-release
+        target: /host/etc/os-release
+        read_only: true
     environment:
       DO_NOT_TRACK: "1"
-      DOCKER_HOST: proxy:2375
-      NETDATA_CLAIM_TOKEN:
       NETDATA_CLAIM_URL: https://app.netdata.cloud
+      DOCKER_HOST: proxy:2370
+    env_file: .env
     cpu_shares: 10
-
-  proxy:
-    container_name: docker-socket-proxy
-    image: tecnativa/docker-socket-proxy
-    restart: unless-stopped
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    environment:
-      CONTAINERS: "1"
-    cpu_shares: 10
-
-volumes:
-  netdataLib:
-  netdataCache:

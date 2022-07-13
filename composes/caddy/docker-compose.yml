@@ -1,19 +1,22 @@
 version: "3.9"
 services:
+
   caddy:
     image: jaidchen/caddy
     container_name: caddy
     network_mode: host
     restart: unless-stopped
     volumes:
-      - ./volume/Caddyfile:/etc/caddy/Caddyfile:ro
-      - ./volume/static:/usr/share/caddy
-      - ./volume/data:/data
-      - ./volume/config:/config
-    environment:
-      - "cloudflareApiToken=${cloudflareToken}"
-    logging:
-      driver: json-file
-      options:
-        max-size: 100m
-        max-file: "3"
+      - type: bind
+        source: ./volume/Caddyfile
+        target: /etc/caddy/Caddyfile
+        read_only: true
+      - type: bind
+        source: ./volume/static
+        target: /usr/share/caddy
+      - type: bind
+        source: ./volume/data
+        target: /data
+      - type: bind
+        source: ./volume/config
+        target: /config
