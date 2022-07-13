@@ -2,7 +2,7 @@
 set -e
 set -o errexit
 
-if [ ! -x "$(command -v docker)" ]; then
+if [ ! -x "$(command -v degit)" ]; then
   echo "Need command degit"
   exit 1
 fi
