@@ -16,7 +16,7 @@ if [ ! -d "$repoFolder" ]; then
   echo "$repoFolder does not exist, cloning"
   gitClone Jaid/setup-server
 else
-  git pull --ff-only --quiet -C "$repoFolder"
+  git -C "$repoFolder" pull --ff-only --quiet
 fi
 
 declare -i allCount=0
