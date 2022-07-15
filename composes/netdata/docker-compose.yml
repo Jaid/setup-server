@@ -27,7 +27,7 @@ services:
         read_only: true
       - type: bind
         source: /etc/group
-        target: /host/etc/bzgroup
+        target: /host/etc/group
         read_only: true
       - type: bind
         source: /proc
