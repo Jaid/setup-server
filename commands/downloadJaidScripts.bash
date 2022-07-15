@@ -15,10 +15,9 @@ outputFolder="$HOME/bin"
 if [ ! -d "$repoFolder" ]; then
   echo "$repoFolder does not exist, cloning"
   gitClone Jaid/setup-server
+else
+  git pull --ff-only --quiet -C "$repoFolder"
 fi
-
-cd "$repoFolder"
-git pull --ff-only --quiet
 
 declare -i allCount=0
 declare -i changedCount=0
@@ -33,14 +32,14 @@ find "$inputFolder" -type f -printf '%f\n' | while read -r file; do
     if [ "$inputMd5" != "$outputMd5" ]; then
       echo "Updating: $scriptName"
       cp --no-preserve=mode,ownership "$inputFile" "$outputFile"
-      changedCount=$((changedCount++))
+      ((++changedCount))
     fi
   else
     echo "Adding: $scriptName"
     cp "$inputFile" "$outputFile"
-    changedCount=$((changedCount++))
+    ((++changedCount))
   fi
-  allcount=$((allCount++))
+  ((++allCount))
 done
 
 printf 'Updated %s/%s scripts\n' "$changedCount" "$allCount"
