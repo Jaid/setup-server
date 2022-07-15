@@ -29,10 +29,12 @@ addSyntax ini
 addSyntax js
 addSyntax json
 addSyntax markdown
+addSyntax patch
 addSyntax properties
 addSyntax sh
 addSyntax sql
 addSyntax systemd
 addSyntax ts
+addSyntax xml
 addSyntax yaml
 addSyntax zsh
