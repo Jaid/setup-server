@@ -37,6 +37,7 @@ find "$inputFolder" -type f -printf '%f\n' | while read -r file; do
   else
     echo "Adding: $scriptName"
     cp "$inputFile" "$outputFile"
+    chmod +x "$inputFile"
     ((++changedCount))
   fi
   ((++allCount))
