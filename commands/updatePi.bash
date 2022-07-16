@@ -8,6 +8,6 @@ if [ "$1" = 'dry' ]; then
   sudo JUST_CHECK=1 SKIP_WARNING=1 rpi-update
 else
   aptGet update
-  aptGet dist-upgrade
+  aptGet full-upgrade
   sudo PRUNE_MODULES=1 RPI_REBOOT=1 SKIP_WARNING=1 rpi-update
 fi
