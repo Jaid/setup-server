@@ -24,6 +24,7 @@ if [ -d "$projectFolder" ]; then
   backupFolder="$HOME/docker/.backup/$1"
   backupOutput="$backupFolder/$(date "+%Y-%m-%d_%H-%M-%S")"
   echo "Project already exists, moving to $backupOutput"
+  mkdir --parents "$backupFolder"
   mv "$projectFolder" "$backupOutput"
 else
   mkdir --parents "$projectFolder"
