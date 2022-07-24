@@ -3,4 +3,4 @@ set -o errexit
 
 here="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" &>/dev/null && pwd 2>/dev/null)"
 
-mkdir --parents "$here/volume/{data,lib,cache}"
+mkdir --parents "$here/volume/{config,lib,cache}"
