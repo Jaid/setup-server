@@ -4,7 +4,7 @@ set -o errexit
 downloadJaidScript enableZshPlugin
 downloadJaidScript downloadZshPlugin
 
-aptGet install zsh
+requireAptPackages zsh
 
 SRC_DIR=~/src
 USER_BIN_DIR=~/bin
@@ -26,9 +26,6 @@ downloadZshPlugin zsh-syntax-highlighting zsh-users/zsh-syntax-highlighting
 downloadZshPlugin zsh-autocomplete marlonrichert/zsh-autocomplete
 downloadZshPlugin you-should-use MichaelAquilina/zsh-you-should-use
 enableZshPlugin command-not-found
-enableZshPlugin extract
-enableZshPlugin git
-enableZshPlugin zbell
 downloadZshPlugin command-time popstas/zsh-command-time
 
 sudo usermod --shell /bin/zsh "$USER"

@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 set -o errexit
 
+requireAptPackages nano
+
 configFolder="$HOME/.config/nano"
 rcFile="$configFolder/nanorc"
 repo=scopatz/nanorc
 repoFolder="$HOME/src/$repo"
 
 mkdir --parents "$configFolder"
-aptGet install nano
 
 if [ ! -d "$repoFolder" ]; then
   echo "$repoFolder does not exist, cloning"

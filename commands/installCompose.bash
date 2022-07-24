@@ -9,7 +9,7 @@ fi
 if [ ! -x "$(command -v docker)" ]; then
   echo "No docker command, installing"
   if [ ! -x "$(command -v installDocker)" ]; then
-    containers_healthy="Also no installDocker command"
+    echo "Also no installDocker command"
     exit 1
   else
     installDocker

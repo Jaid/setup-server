@@ -3,10 +3,7 @@ set -o errexit
 
 mkdir -p ~/src
 
-if ! command -v git &>/dev/null; then
-  echo "git command not found, installing"
-  aptGet install git
-fi
+requireAptPackages git
 
 cd $HOME # It's safer: https://stackoverflow.com/questions/9851644/git-pulling-depends-on-the-current-dir
 if [[ $1 =~ .*:.* ]]; then
