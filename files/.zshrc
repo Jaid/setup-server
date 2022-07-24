@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
-path+=(/home/pi/bin)
+path+=("$HOME/bin")
+path+=("$HOME/src/scripts/scripts")
 path+=(/usr/sbin)
 export PATH
 
