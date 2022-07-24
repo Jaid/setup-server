@@ -8,13 +8,15 @@ if [ ! -x "$(command -v gitClone)" ]; then
   exit 1
 fi
 
-repoFolder="$HOME/src/setup-server"
+reposFolder="$HOME/src"
+repoFolder="$reposFolder/setup-server"
 inputFolder="$repoFolder/commands"
 outputFolder="$HOME/bin"
 
 if [ ! -d "$repoFolder" ]; then
   echo "$repoFolder does not exist, cloning"
-  gitClone Jaid/setup-server
+  mkdir --parents "$reposFolder"
+  git clone https://github.com/Jaid/setup-server.git "$repoFolder"
 else
   git -C "$repoFolder" pull --ff-only --quiet
 fi
@@ -32,15 +34,15 @@ find "$inputFolder" -type f -printf '%f\n' | while read -r file; do
     if [ "$inputMd5" != "$outputMd5" ]; then
       echo "Updating: $scriptName"
       cp --no-preserve=mode,ownership "$inputFile" "$outputFile"
-      : "$((++changedCount))"
+      ((changedCount++)) || true
     fi
   else
     echo "Adding: $scriptName"
     cp "$inputFile" "$outputFile"
     chmod +x "$inputFile"
-    : "$((++changedCount))"
+    ((changedCount++)) || true
   fi
-  : "$((++allCount))"
+  ((allCount++)) || true
 done
 
 printf 'Updated %s/%s scripts\n' "$changedCount" "$allCount"
