@@ -30,6 +30,13 @@ else
 fi
 
 degit "Jaid/setup-server/composes/$1" "$projectFolder"
+
+setupScript="$projectFolder/setup"
+if [ -f "$setupScript" ]; then
+  chmod +x "$setupScript"
+  "$setupScript"
+fi
+
 docker compose --file "$composeFile" up --no-start
 
 echo "Added docker-compose project: $1"
