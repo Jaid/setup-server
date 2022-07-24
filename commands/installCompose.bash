@@ -35,7 +35,7 @@ degit "Jaid/setup-server/composes/$1" "$projectFolder"
 setupScript="$projectFolder/setup"
 if [ -f "$setupScript" ]; then
   chmod +x "$setupScript"
-  printf 'Executing setup script: %s' "$setupScript"
+  printf 'Executing setup script: %s\n' "$setupScript"
   "$setupScript"
 fi
 
