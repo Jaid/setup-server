@@ -32,15 +32,15 @@ find "$inputFolder" -type f -printf '%f\n' | while read -r file; do
     if [ "$inputMd5" != "$outputMd5" ]; then
       echo "Updating: $scriptName"
       cp --no-preserve=mode,ownership "$inputFile" "$outputFile"
-      : "((++changedCount))"
+      : "$((++changedCount))"
     fi
   else
     echo "Adding: $scriptName"
     cp "$inputFile" "$outputFile"
     chmod +x "$inputFile"
-    : "((++changedCount))"
+    : "$((++changedCount))"
   fi
-  : "((++allCount))"
+  : "$((++allCount))"
 done
 
 printf 'Updated %s/%s scripts\n' "$changedCount" "$allCount"
