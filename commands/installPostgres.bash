@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 set -o errexit
 
 if [[ $# -eq 0 ]]; then

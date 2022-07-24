@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 set -o errexit
 
 downloadFile=/etc/systemd/system/$1.service

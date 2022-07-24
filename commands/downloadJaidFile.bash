@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -o errexit
 
 target="$2"
 targetFolder="$(dirname "$target")"
