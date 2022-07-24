@@ -4,6 +4,7 @@ services:
   netdata:
     image: netdata/netdata:stable
     container_name: netdata
+    hostname: ${hostname}
     ports:
       - 19999:19999
     restart: unless-stopped
