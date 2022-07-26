@@ -15,6 +15,7 @@ if [ ! -d "$repoFolder" ]; then
   echo "$repoFolder does not exist, cloning"
   mkdir --parents "$otherReposFolder"
   git clone https://github.com/Jaid/setup-server.git "$repoFolder"
+  git checkout dist
 else
   git -C "$repoFolder" pull --ff-only --quiet
 fi

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 set -o errexit
 
-mkdir --parents abc
-touch abc/test.txt
+mkdir --parents dist
+
+cp -r composes dist/composes
+cp -r files dist/files
+cp -r services dist/services
+cp -r timers dist/timers
