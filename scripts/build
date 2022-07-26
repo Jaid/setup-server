@@ -7,3 +7,13 @@ cp -r composes dist/composes
 cp -r files dist/files
 cp -r services dist/services
 cp -r timers dist/timers
+
+mkdir --parents scripts
+
+scriptsFolder=commands
+find "$scriptsFolder" -type f -print0 | while read -r --delimiter $'\0' file; do
+  fileWithoutExtension=$(printf %s "$file" | sed 's|\.\w\+$||')
+  inputFile="$scriptsFolder/$file"
+  outputFile="dist/scripts/$fileWithoutExtension"
+  cp "$inputFile" "$outputFile"
+done
