@@ -1,0 +1,11 @@
+[Unit]
+Description=Upgrade youtube-dl
+After=network.target
+ConditionPathExists=/usr/local/bin/youtube-dl
+
+[Service]
+ExecStart=/usr/local/bin/youtube-dl --update
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

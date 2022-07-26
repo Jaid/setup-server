@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+
+  dockerSocketProxy:
+    container_name: docker-socket-proxy
+    image: tecnativa/docker-socket-proxy
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+        read_only: true
+    ports:
+      - 127.0.0.1:2370:2375

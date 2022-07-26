@@ -1,0 +1,50 @@
+version: "3.9"
+services:
+
+  netdata:
+    image: netdata/netdata:stable
+    container_name: netdata
+    hostname: ${HOST}
+    ports:
+      - 19999:19999
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - type: bind
+        source: ./volume/config
+        target: /etc/netdata
+      - type: bind
+        source: ./volume/lib
+        target: /var/lib/netdata
+      - type: bind
+        source: ./volume/cache
+        target: /var/cache/netdata
+      - type: bind
+        source: /etc/passwd
+        target: /host/etc/passwd
+        read_only: true
+      - type: bind
+        source: /etc/group
+        target: /host/etc/group
+        read_only: true
+      - type: bind
+        source: /proc
+        target: /host/proc
+        read_only: true
+      - type: bind
+        source: /sys
+        target: /host/sys
+        read_only: true
+      - type: bind
+        source: /etc/os-release
+        target: /host/etc/os-release
+        read_only: true
+    environment:
+      DO_NOT_TRACK: "1"
+      NETDATA_CLAIM_URL: https://app.netdata.cloud
+      DOCKER_HOST: proxy:2370
+    env_file: .env
+    cpu_shares: 10
