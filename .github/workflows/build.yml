@@ -13,7 +13,7 @@ jobs:
       - name: actions/checkout
         uses: actions/checkout@v2
       - name: Run compiler
-        run: bash ./scripts/compile
+        run: bash ./scripts/build
       - name: s0/git-publish-subdir-action
         uses: s0/git-publish-subdir-action@v2.5.1
         env:
