@@ -1,2 +1,5 @@
+#!/usr/bin/env bash
+set -o errexit
+
 mkdir --parents abc
 touch abc/test.txt
