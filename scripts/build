@@ -12,7 +12,7 @@ outputFolder="dist/scripts"
 mkdir --parents "$outputFolder"
 
 scriptsFolder=./commands
-find "$scriptsFolder" -type f -print0 | while read -r --delimiter $'\0' file; do
+find "$scriptsFolder" -type f -print0 | while read -r -d $'\0' file; do
   fileWithoutExtension=$(printf %s "$file" | sed 's|\.\w\+$||')
   inputFile="$scriptsFolder/$file"
   outputFile="$outputFolder/$fileWithoutExtension"
