@@ -1,0 +1,24 @@
+name: Generate a build and push to another branch
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and push
+    steps:
+      - name: actions/checkout
+        uses: actions/checkout@v2
+      - name: Run compiler
+        run: bash ./scripts/compile
+      - name: s0/git-publish-subdir-action
+        uses: s0/git-publish-subdir-action@v2.5.1
+        env:
+          REPO: self
+          BRANCH: dist
+          FOLDER: abc
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: "Build: ({sha}) {msg}"
