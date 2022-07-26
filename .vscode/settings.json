@@ -1,0 +1,8 @@
+{
+  "github-actions.workflows.pinned.workflows": [
+    ".github/workflows/publishDockerImage.yml",
+    ".github/workflows/publishPackage.yml",
+    ".github/workflows/validate.yml",
+    ".github/workflows/build.yml"
+  ]
+}
