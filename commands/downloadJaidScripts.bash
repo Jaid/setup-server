@@ -3,19 +3,17 @@ set -o errexit
 set +o monitor
 shopt -s lastpipe
 
-if [ ! -x "$(command -v gitClone)" ]; then
-  echo "Need command gitClone"
-  exit 1
-fi
+: "${otherReposFolder:="$HOME/src"}"
+: "${userBinFolder:="$HOME/bin"}"
 
-reposFolder="$HOME/src"
-repoFolder="$reposFolder/setup-server"
+repoFolder="$otherReposFolder/setup-server"
 inputFolder="$repoFolder/commands"
-outputFolder="$HOME/bin"
+
+mkdir --parents "$userBinFolder"
 
 if [ ! -d "$repoFolder" ]; then
   echo "$repoFolder does not exist, cloning"
-  mkdir --parents "$reposFolder"
+  mkdir --parents "$otherReposFolder"
   git clone https://github.com/Jaid/setup-server.git "$repoFolder"
 else
   git -C "$repoFolder" pull --ff-only --quiet
@@ -27,7 +25,7 @@ declare -i changedCount=0
 find "$inputFolder" -type f -printf '%f\n' | while read -r file; do
   scriptName=$(printf %s "$file" | sed 's|\.\w\+$||')
   inputFile="$inputFolder/$file"
-  outputFile="$outputFolder/$scriptName"
+  outputFile="$userBinFolder/$scriptName"
   if [ -f "$outputFile" ]; then
     inputMd5=$(md5sum "$inputFile" | cut --fields 1 --delimiter " ")
     outputMd5=$(md5sum "$outputFile" | cut --fields 1 --delimiter " ")
