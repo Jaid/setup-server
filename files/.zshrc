@@ -1,20 +1,21 @@
 #!/usr/bin/env zsh
 
-path+=("$HOME/bin")
-path+=("$HOME/src/scripts/scripts")
-path+=(/usr/sbin)
-export PATH
-
 test -f ~/.env && source "$_"
 test -f ~/.secrets && source "$_"
 
-export ZSH="$HOME/src/ohmyzsh"
+path+=("$userBinFolder")
+path+=("$otherReposFolder/scripts/scripts")
+path+=(/usr/sbin)
+export PATH
+
+export ZSH="$otherReposFolder/ohmyzsh"
 export ZSH_THEME=agnoster
 
 interactiveTools=(
   ssh
   nano
   htop
+  ctop
   ncdu
   nethogs
 )
@@ -39,5 +40,5 @@ zstyle ':autocomplete:history-search:*' list-lines 5
 
 source "$ZSH/oh-my-zsh.sh"
 
-alias l="exa --long --all --group-directories-first --icons"
-alias 'fd=fd --hidden'
+alias l='exa --long --all --group-directories-first --icons'
+alias fd='fd --hidden'
