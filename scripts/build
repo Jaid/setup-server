@@ -8,7 +8,7 @@ cp -r files dist/files
 cp -r services dist/services
 cp -r timers dist/timers
 
-outputFolder="dist/scripts"
+outputFolder="dist/bin"
 mkdir --parents "$outputFolder"
 
 scriptsFolder=./commands
