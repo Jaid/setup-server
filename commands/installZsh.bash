@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -o errexit
 
-downloadJaidScript enableZshPlugin
-downloadJaidScript downloadZshPlugin
-
 requireAptPackages zsh
 
 SRC_DIR=~/src
