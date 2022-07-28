@@ -4,7 +4,8 @@ test -f ~/.env && source "$_"
 test -f ~/.secrets && source "$_"
 
 path+=("$userBinFolder")
-path+=("$otherReposFolder/scripts/scripts")
+path+=("$otherReposFolder/scripts/bin")
+path+=("$otherReposFolder/setup-server/bin")
 path+=(/usr/sbin)
 export PATH
 
