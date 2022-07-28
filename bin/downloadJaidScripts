@@ -34,7 +34,8 @@ for scriptRepo in "${scriptRepos[@]}"; do
     git -C "$repoFolder" checkout dist
   else
     printf "$stylePink%s already cloned, pulling$styleReset\n" "$scriptRepo"
-    git -C "$repoFolder" pull --ff-only --quiet
+    git -C "$repoFolder" fetch origin main
+    git -C "$repoFolder" reset --hard origin/main
   fi
   repoBinFolder="$repoFolder/bin"
   find "$repoBinFolder" -type f -printf '%f\0' | while read -r -d $'\0' file; do
