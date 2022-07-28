@@ -3,16 +3,16 @@ set -o errexit
 
 requireAptPackages zsh
 
-SRC_DIR=~/src
-USER_BIN_DIR=~/bin
+: "${otherReposFolder:="$HOME/src"}"
+: "${userBinFolder:="$HOME/bin"}"
 
 mkdir --parents "$SRC_DIR"
 
-ZSH=$SRC_DIR/ohmyzsh
-ZSH_PLUGINS=$ZSH/custom/plugins
+export ZSH=$otherReposFolder/ohmyzsh
+export ZSH_PLUGINS=$ZSH/custom/plugins
 gitClone ohmyzsh/ohmyzsh
 
-chmod --recursive go-w $ZSH
+chmod --recursive go-w "$ZSH"
 
 downloadJaidFile .zshrc ~/.zshrc
 downloadJaidFile .env ~/.env
@@ -25,4 +25,5 @@ downloadZshPlugin you-should-use MichaelAquilina/zsh-you-should-use
 enableZshPlugin command-not-found
 downloadZshPlugin command-time popstas/zsh-command-time
 
-sudo usermod --shell /bin/zsh "$USER"
+user=${USER:-$(whoami)}
+sudo usermod --shell /bin/zsh "$user"
