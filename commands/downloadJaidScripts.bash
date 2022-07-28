@@ -3,6 +3,16 @@ set -o errexit
 set +o monitor
 shopt -s lastpipe
 
+styleRed=$(tput setaf 1)
+styleGreen=$(tput setaf 2)
+styleBlue=$(tput setaf 6)
+stylePink=$(tput setaf 5)
+styleGray=$(tput setaf 8)
+stylePurple=$(tput setaf 19)
+styleOrange=$(tput setaf 172)
+styleBold=$(tput bold)
+styleReset=$(tput sgr0)
+
 : "${otherReposFolder:="$HOME/src"}"
 mkdir --parents "$otherReposFolder"
 
@@ -16,10 +26,11 @@ for scriptRepo in "${scriptRepos[@]}"; do
   printf 'Repo: “%s”\n' "$scriptRepo"
   repoFolder="$otherReposFolder/$scriptRepo"
   if [ ! -d "$repoFolder" ]; then
-    printf "%s does not exist, cloning\n" "$repoFolder"
+    printf "$stylePink%s does not exist, cloning$styleReset\n" "$repoFolder"
     git clone "git@github.com:Jaid/$scriptRepo.git" "$repoFolder"
     git -C "$repoFolder" checkout dist
   else
+    printf "$stylePink%s already cloned, pulling$styleReset\n" "$scriptRepo"
     git -C "$repoFolder" pull --ff-only --quiet
   fi
   repoBinFolder="$repoFolder/bin"
@@ -33,5 +44,5 @@ for scriptRepo in "${scriptRepos[@]}"; do
   done
 done
 
-printf 'Added execute permission to %s scripts\n' "$xCount"
-printf 'Available scripts: %s\n' "$scriptCount"
+printf "${styleOrange}Added execute permission to %s scripts$styleReset\n" "$xCount"
+printf "${styleOrange}Available scripts: %s$styleReset\n" "$scriptCount"
