@@ -6,8 +6,6 @@ requireAptPackages zsh
 : "${otherReposFolder:="$HOME/src"}"
 : "${userBinFolder:="$HOME/bin"}"
 
-mkdir --parents "$SRC_DIR"
-
 export ZSH=$otherReposFolder/ohmyzsh
 export ZSH_PLUGINS=$ZSH/custom/plugins
 gitClone ohmyzsh/ohmyzsh
