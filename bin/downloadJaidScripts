@@ -3,12 +3,20 @@ set -o errexit
 set +o monitor
 shopt -s lastpipe
 
+if [ -z ${GITHUB_TOKEN+x} ]; then
+  printf >&2 'Variable $GITHUB_TOKEN not existing\n'
+  exit 1
+fi
+
 styleGreen=$(tput setaf 2)
 stylePink=$(tput setaf 5)
 styleOrange=$(tput setaf 172)
 styleReset=$(tput sgr0)
 
+user=${USER:-$(whoami)}
+: "${githubUser:="$user"}"
 : "${otherReposFolder:="$HOME/src"}"
+
 mkdir --parents "$otherReposFolder"
 
 declare -a scriptRepos=(
@@ -22,7 +30,7 @@ for scriptRepo in "${scriptRepos[@]}"; do
   repoFolder="$otherReposFolder/$scriptRepo"
   if [ ! -d "$repoFolder" ]; then
     printf "$stylePink%s does not exist, cloning$styleReset\n" "$repoFolder"
-    git clone "https://github.com/Jaid/$scriptRepo" "$repoFolder"
+    git clone "https://$githubUser:$GITHUB_TOKEN@github.com/Jaid/$scriptRepo" "$repoFolder"
     git -C "$repoFolder" checkout dist
   else
     printf "$stylePink%s already cloned, pulling$styleReset\n" "$scriptRepo"
