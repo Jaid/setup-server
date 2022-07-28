@@ -13,7 +13,8 @@ mkdir --parents "$outputFolder"
 
 scriptsFolder=./commands
 find "$scriptsFolder" -type f -printf '%P\0' | while read -r -d $'\0' file; do
-  fileWithoutExtension=$(printf %s "$file" | sed 's|\.\w\+$||')
+  fileName=${file##*/}
+  fileWithoutExtension=$(printf %s "$fileName" | sed 's|\.\w\+$||')
   inputFile="$scriptsFolder/$file"
   outputFile="$outputFolder/$fileWithoutExtension"
   printf '%s -> %s\n' "$inputFile" "$outputFile"
