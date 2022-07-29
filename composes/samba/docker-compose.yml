@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  samba:
+    image: ghcr.io/jtagcat/samba
+    container_name: samba
+    environment:
+      TZ: Europe/Berlin
+      NMBD: "false"
+      RECYCLE: "true"
+      USERID: "1000"
+      GROUPID: "1000"
+      # <name;/path>[;browse;readonly;guest;users;admins;writelist;comment]
+      SHARE1: home;/mnt/home;yes;no;no;windows
+      # <username;password>[;ID;group;GID]
+      USER1: $sambaUser;$sambaPassword
+    network_mode: host
+    ports:
+      - 139:139/tcp
+      - 445:445/tcp
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: /home/$USER
+        target: /mnt/home
