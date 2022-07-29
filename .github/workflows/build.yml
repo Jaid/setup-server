@@ -13,7 +13,9 @@ jobs:
       - name: actions/checkout
         uses: actions/checkout@v2
       - name: Run compiler
-        run: bash ./scripts/build
+        run: bash scripts/build
+      - name: Set executable # See https://stackoverflow.com/a/40979016/11389747
+        run: git add --chmod=+x bin/*
       - name: s0/git-publish-subdir-action
         uses: s0/git-publish-subdir-action@v2.5.1
         env:
@@ -22,3 +24,4 @@ jobs:
           FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Build: ({sha}) {msg}"
+          SKIP_EMPTY_COMMITS: true
