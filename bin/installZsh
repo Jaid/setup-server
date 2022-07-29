@@ -12,9 +12,9 @@ gitClone ohmyzsh/ohmyzsh
 
 chmod --recursive go-w "$ZSH"
 
-downloadJaidFile .zshrc ~/.zshrc
-downloadJaidFile .env ~/.env
-downloadJaidFile .secrets ~/.secrets
+installGist 1b2dfe2cd4dca4e031a892e70a317ae7
+installGist e68ff74b342ffbf708620b37a617eb1d
+installGist 51021323256c14442c03eacdd3c56c3c
 
 downloadZshPlugin zsh-autosuggestions zsh-users/zsh-autosuggestions
 downloadZshPlugin zsh-syntax-highlighting zsh-users/zsh-syntax-highlighting
