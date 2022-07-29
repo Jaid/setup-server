@@ -48,5 +48,7 @@ for scriptRepo in "${scriptRepos[@]}"; do
   done
 done
 
-printf "${styleOrange}Added execute permission to %s scripts$styleReset\n" "$xCount"
+if [ "$xCount" -gt 0 ]; then
+  printf "${styleOrange}Added execute permission to %s scripts$styleReset\n" "$xCount"
+fi
 printf "${styleGreen}Available scripts: %s$styleReset\n" "$scriptCount"
