@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+
+  pihole:
+    container_name: pihole
+    image: pihole/pihole
+    network_mode: host
+    environment:
+      TZ: Europe/Berlin
+      PIHOLE_DNS_: 1.1.1.1;1.0.0.1;2606:4700:4700::1111;2606:4700:4700::1001 # Cloudflare
+      DHCP_ACTIVE: "true"
+      DHCP_IPv6: "true"
+      DHCP_rapid_commit: "false"
+      IPv6: "true"
+      VIRTUAL_HOST: pi.hole
+    env_file: .env
+    dns:
+      - "1.1.1.1"
+      - "1.0.0.1"
+    volumes:
+      - type: bind
+        source: ./volume/data
+        target: /etc/pihole
+      - type: bind
+        source: ./volume/etc-dnsmasq.d
+        target: /etc/dnsmasq.d
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - CAP_NET_RAW
+    cpu_shares: 4000 # High priority
