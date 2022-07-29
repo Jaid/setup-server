@@ -18,4 +18,5 @@ find "$scriptsFolder" -type f -printf '%P\0' | while read -r -d $'\0' file; do
   outputFile="$outputFolder/$fileWithoutExtension"
   printf '%s -> %s\n' "$inputFile" "$outputFile"
   cp "$inputFile" "$outputFile"
+  git update-index --chmod=-x "$outputFile" # See https://stackoverflow.com/a/40979016/11389747
 done
