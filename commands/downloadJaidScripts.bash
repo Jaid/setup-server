@@ -52,6 +52,7 @@ for scriptRepo in "${scriptRepos[@]}"; do
       ((xCount++)) || true
     fi
   done
+  git -C "$repoFolder" update-index --assume-unchanged "$repoBinFolder"/*
 done
 
 if [ "$xCount" -gt 0 ]; then
