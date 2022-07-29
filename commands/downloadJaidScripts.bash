@@ -38,7 +38,9 @@ for scriptRepo in "${scriptRepos[@]}"; do
     changeCount=$(git -C "$repoFolder" rev-list "HEAD...origin/$(git -C "$repoFolder" branch --show-current)" --count)
     if [ "$changeCount" -gt 0 ]; then
       printf "${stylePink}New commits: %s$styleReset\n" "$changeCount"
-      git -C "$repoFolder" reset --hard origin/dist
+      git -C "$repoFolder" gc
+      git -C "$repoFolder" reset --hard
+      git -C "$repoFolder" pull --ff --strategy-option theirs --force
     else
       printf "${stylePink}Up to date$styleReset\n"
     fi
