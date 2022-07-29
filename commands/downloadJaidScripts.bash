@@ -34,10 +34,10 @@ for scriptRepo in "${scriptRepos[@]}"; do
     git -C "$repoFolder" checkout dist
   else
     printf "$stylePink%s already cloned, pulling$styleReset\n" "$scriptRepo"
+    git -C "$repoFolder" fetch
     changeCount=$(git -C "$repoFolder" rev-list "HEAD...origin/$(git -C "$repoFolder" branch --show-current)" --count)
     if [ "$changeCount" -gt 0 ]; then
       printf "${stylePink}New commits: %s$styleReset\n" "$changeCount"
-      git -C "$repoFolder" fetch origin dist
       git -C "$repoFolder" reset --hard origin/dist
     else
       printf "${stylePink}Up to date$styleReset\n"
