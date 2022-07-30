@@ -22,7 +22,7 @@ services:
         source: ./volume/data
         target: /etc/pihole
       - type: bind
-        source: ./volume/etc-dnsmasq.d
+        source: ./volume/dnsmasq
         target: /etc/dnsmasq.d
     restart: unless-stopped
     cap_add:
