@@ -11,7 +11,7 @@ services:
       USERID: "1000"
       GROUPID: "1000"
       # <name;/path>[;browse;readonly;guest;users;admins;writelist;comment]
-      SHARE1: home;/mnt/home;yes;no;no;windows
+      SHARE1: home;/mnt/home;yes;no;no;${sambaUser}
       # <username;password>[;ID;group;GID]
       USER1: ${sambaUser:?};${sambaPassword:?}
     network_mode: host
