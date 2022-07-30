@@ -4,3 +4,9 @@ set -o errexit
 here="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" &>/dev/null && pwd 2>/dev/null)"
 
 sudo chmod -R ugo+rw "$here/volume"
+
+source loadComposeFunctions
+
+if ! isComposeRunning dockerSocketProxy; then
+  printf 'Warning: compose project dockerSocketProxy not running\n'
+fi
