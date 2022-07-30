@@ -1,9 +1,9 @@
 version: "3.9"
-:?
 services:
+
   samba:
-    image: ghcr.io/jtagcat/samba
     container_name: samba
+    image: ghcr.io/jtagcat/samba
     environment:
       TZ: Europe/Berlin
       NMBD: "false"
