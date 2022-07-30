@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -o errexit
 
-SRC_DIR=~/src
-USER_BIN_DIR=~/bin
+: "${otherReposFolder:="$HOME/src"}"
+: "${userBinFolder:="$HOME/bin"}"
 
 mkdir --parents $SRC_DIR/ffmpeg-build
 

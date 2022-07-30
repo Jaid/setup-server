@@ -9,3 +9,4 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 
 aptGet update
 aptGet install gh
+printf %s GITHUB_TOKEN | gh auth login --with-token
