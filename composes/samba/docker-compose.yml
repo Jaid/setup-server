@@ -1,5 +1,5 @@
 version: "3.9"
-
+:?
 services:
   samba:
     image: ghcr.io/jtagcat/samba
@@ -13,7 +13,7 @@ services:
       # <name;/path>[;browse;readonly;guest;users;admins;writelist;comment]
       SHARE1: home;/mnt/home;yes;no;no;windows
       # <username;password>[;ID;group;GID]
-      USER1: ${sambaUser};${sambaPassword}
+      USER1: ${sambaUser:?};${sambaPassword:?}
     network_mode: host
     ports:
       - 139:139/tcp
@@ -25,5 +25,5 @@ services:
     tty: true
     volumes:
       - type: bind
-        source: /home/${USER}
+        source: /home/${USER:?}
         target: /mnt/home
