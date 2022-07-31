@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -o errexit
 
-downloadFile=/usr/local/bin/yt-dlp
-sudo downloadFile "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp" $downloadFile
-sudo chmod +x $downloadFile
+: "${userBinFolder:="$HOME/bin"}"
+outputFile="$userBinFolder/yt-dlp"
+
+downloadFile "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp" "$outputFile"
+chmod +x "$outputFile"
