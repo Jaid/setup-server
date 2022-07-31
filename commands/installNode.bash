@@ -2,7 +2,7 @@
 set -o errexit
 
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
-requireAptPackages gcc g++ make build-essential
+requireAptPackages build-essential pkg-config gcc g++ make
 aptGet clean
 aptGet autoremove
 aptGet install nodejs
