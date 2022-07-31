@@ -19,6 +19,6 @@ services:
         target: /data
     environment:
       EDGE: 1
-      EDGE_INSECURE_POLL: 1
+      EDGE_INSECURE_POLL: 0
     env_file: .env
     image: portainer/agent
