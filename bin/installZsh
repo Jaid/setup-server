@@ -23,7 +23,7 @@ if [ -f ~/.bash_profile ]; then
   mv ~/.bash_profile ~/.bash_profile_old
 fi
 if [ -f ~/.profile ]; then
-  mv ~/.profile ~/.profile
+  mv ~/.profile ~/.profile_old
 fi
 installGist 8e6f2105498f7f2bcff9822f38832c67
 
