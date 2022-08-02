@@ -17,7 +17,7 @@ set -o errexit
 : "${includeVmaf:=1}"
 : "${skipToFfmpeg:=0}"
 
-requireAptPackages autoconf automake build-essential cmake libass-dev libfreetype6-dev libmp3lame-dev libtool libvorbis-dev meson ninja-build pkg-config texinfo wget yasm zlib1g-dev libunistring-dev libaribb24-dev
+requireAptPackages autoconf automake build-essential cmake libass-dev libfreetype6-dev libmp3lame-dev libtool libvorbis-dev meson ninja-build pkg-config texinfo wget yasm zlib1g-dev libunistring-dev libaribb24-dev curl
 
 otherReposFolder="$buildFolder/git"
 nonGitSourcesFolder="$buildFolder/src"
