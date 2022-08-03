@@ -10,4 +10,7 @@ cd "$otherReposFolder/grc"
 
 dpkg-buildpackage -b -rfakeroot
 sudo dpkg --install "$otherReposFolder"/*.deb
-rm "$otherReposFolder/"grc_*
+rm "$otherReposFolder"/grc_*
+
+#!/usr/bin/env bash
+set -o errexit
