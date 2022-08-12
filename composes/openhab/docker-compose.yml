@@ -4,7 +4,9 @@ services:
   netdata:
     image: openhab/openhab
     container_name: openhab
-    network_mode: host
+    ports:
+      - 5300:5300
+      - 5301:5301
     restart: unless-stopped
     volumes:
       - type: bind
@@ -24,3 +26,9 @@ services:
       - type: bind
         source: ./volume/addons
         target: /openhab/addons
+    environment:
+      EXTRA_JAVA_OPTS: -Duser.timezone=Europe/Berlin
+      USER_ID: 1000
+      GROUP_ID: 1000
+      OPENHAB_HTTP_PORT: "5300"
+      OPENHAB_HTTPS_PORT: "5301"
