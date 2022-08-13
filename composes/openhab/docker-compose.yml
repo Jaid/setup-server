@@ -14,8 +14,8 @@ services:
         target: /etc/localtime
         read_only: true
       - type: bind
-        source: /etc/localtime
-        target: /etc/localtime
+        source: /etc/timezone
+        target: /etc/timezone
         read_only: true
       - type: bind
         source: ./volume/data
