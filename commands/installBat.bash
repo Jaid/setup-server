@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -o errexit
 
+if [ -x "$(command -v cat)" ]; then
+  printf 'Command cat already available\n'
+  exit 0
+fi
+
 batVersion="0.21.0"
 
 SRC_DIR=~/src

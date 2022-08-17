@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -o errexit
 
+if [ -x "$(command -v node)" ]; then
+  printf 'Command node already available\n'
+  exit 0
+fi
+
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 requireAptPackages build-essential pkg-config gcc g++ make python3
 aptGet clean

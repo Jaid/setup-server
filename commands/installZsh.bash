@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -o errexit
 
+if if [ -x "$(command -v zsh)" ]; then
+  printf 'Command zsh already available\n'
+fi
+
 requireAptPackages zsh
 
 : "${otherReposFolder:="$HOME/src"}"
