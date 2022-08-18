@@ -35,5 +35,5 @@ installNode
 installZsh
 ' > ~/setup.bash
 
-bash setup.bash &> setup.log
+bash ~/setup.bash &> setup.log
 ```
