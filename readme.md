@@ -3,7 +3,7 @@
 ### Pull all scripts
 
 ```bash
-mkdir --parents ~/src && [ ! -d ~/src/scripts ] || rm -rf ~/src/scripts && [ ! -d ~/src/setup-server ] || rm -rf ~/src/setup-server && curl --silent --location --retry 3 --fail 'https://raw.githubusercontent.com/Jaid/setup-server/dist/bin/downloadJaidScripts' | GITHUB_TOKEN=ghp_000000000000000000000000000000000000 bash
+GITHUB_TOKEN=ghp_000000000000000000000000000000000000 && mkdir --parents ~/src && [ ! -d ~/src/scripts ] || rm -rf ~/src/scripts && [ ! -d ~/src/setup-server ] || rm -rf ~/src/setup-server && curl --silent --location --retry 3 --fail 'https://raw.githubusercontent.com/Jaid/setup-server/dist/bin/downloadJaidScripts' | bash
 ```
 
 ### Setup
