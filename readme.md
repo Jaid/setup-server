@@ -27,11 +27,11 @@ installGist d519aff77c198b0c452ba792358b6545 # htoprc
 installGist b81a839a438693a86718d3bb6347a9e4 # .gitconfig
 installGist eac9757fdb899067a64f5880524823d9 # locale.gen
 setupLanguage
+installCoolTools
 installNano
 installGrc
 installGh
 installNode
-#installCoolTools
 installZsh
 ' > ~/setup.bash
 
