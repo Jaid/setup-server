@@ -9,11 +9,12 @@ export GITHUB_TOKEN=ghp_000000000000000000000000000000000000 && mkdir --parents 
 ### Setup
 
 ```bash
+
+echo '
 #!/usr/bin/env bash
 set -o errexit
 set -o xtrace
 
-echo '
 export PATH="$PATH:$HOME/src/scripts/bin"
 disableSudoPassword
 aptUpgrade
@@ -34,5 +35,5 @@ installNode
 installZsh
 ' > ~/setup.bash
 
-bash setup.bash > setup.log
+bash setup.bash &> setup.log
 ```
