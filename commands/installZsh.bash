@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -o errexit
 
-if if [ -x "$(command -v zsh)" ]; then
+if [ -x "$(command -v zsh)" ]; then
   printf 'Command zsh already available\n'
 fi
 
@@ -22,12 +22,6 @@ installGist 51021323256c14442c03eacdd3c56c3c
 
 if [ -f ~/.bashrc ]; then
   mv ~/.bashrc ~/.bashrc_old
-fi
-if [ -f ~/.bash_profile ]; then
-  mv ~/.bash_profile ~/.bash_profile_old
-fi
-if [ -f ~/.profile ]; then
-  mv ~/.profile ~/.profile_old
 fi
 installGist 8e6f2105498f7f2bcff9822f38832c67
 
