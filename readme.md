@@ -21,6 +21,7 @@ aptUpgrade
 installGist 8e6f2105498f7f2bcff9822f38832c67 # .bashrc
 installGist e68ff74b342ffbf708620b37a617eb1d # .env
 installGist 51021323256c14442c03eacdd3c56c3c # .secrets
+installGist ce1dff0c5af35b4794dda93705f59742 # .path
 sed --in-place "s|ghp_000000000000000000000000000000000000|$GITHUB_TOKEN|g" ~/.secrets
 source ~/.bashrc
 installGist d519aff77c198b0c452ba792358b6545 # htoprc
