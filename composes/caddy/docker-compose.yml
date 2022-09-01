@@ -4,8 +4,6 @@ services:
   caddy:
     image: jaidchen/caddy
     container_name: caddy
-    network_mode: host
-    restart: unless-stopped
     volumes:
       - type: bind
         source: ./volume/Caddyfile
@@ -20,3 +18,7 @@ services:
       - type: bind
         source: ./volume/config
         target: /config
+    environment:
+      cloudflareApiToken: ${cloudflareToken:?}
+    network_mode: host
+    restart: unless-stopped
