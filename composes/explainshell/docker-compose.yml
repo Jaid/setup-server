@@ -3,9 +3,8 @@ services:
 
   app:
     container_name: explainshell
-    image: spaceinvaderone/explainshell
+    image: kevinhalpin/explainshell
     ports:
-      - 5010:5000
       - 5011:8080
     volumes:
       - type: bind
