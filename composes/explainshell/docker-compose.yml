@@ -5,15 +5,5 @@ services:
     container_name: explainshell
     image: kevinhalpin/explainshell
     ports:
-      - 5011:8080
-    volumes:
-      - type: bind
-        source: ./volume/db
-        target: /data/db
-      - type: bind
-        source: ./volume/configdb
-        target: /data/configdb
-      - type: bind
-        source: ./volume/db2
-        target: /data/db2
+      - 5011:5000
     restart: unless-stopped
