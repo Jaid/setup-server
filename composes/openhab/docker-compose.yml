@@ -1,7 +1,7 @@
 version: "3.9"
 services:
 
-  netdata:
+  main:
     image: openhab/openhab
     container_name: openhab
     ports:
@@ -28,6 +28,7 @@ services:
         target: /openhab/addons
     environment:
       EXTRA_JAVA_OPTS: -Duser.timezone=Europe/Berlin
+      CRYPTO_POLICY: unlimited
       USER_ID: 1000
       GROUP_ID: 1000
       OPENHAB_HTTP_PORT: "5300"
