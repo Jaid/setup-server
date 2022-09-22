@@ -1,9 +1,9 @@
 version: "3.9"
 services:
 
-  app:
+  main:
     container_name: github-release-writer
-    image: jaidchen/github-release-writer
+    image: jaidchen/github-release-writer:main
     restart: unless-stopped
     ports:
       - 39410:3000

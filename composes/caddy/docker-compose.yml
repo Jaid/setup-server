@@ -1,8 +1,8 @@
 version: "3.9"
 services:
 
-  caddy:
-    image: jaidchen/caddy
+  main:
+    image: jaidchen/caddy:main
     container_name: caddy
     volumes:
       - type: bind

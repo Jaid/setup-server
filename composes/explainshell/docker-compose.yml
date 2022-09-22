@@ -1,7 +1,7 @@
 version: "3.9"
 services:
 
-  app:
+  main:
     container_name: explainshell
     image: kevinhalpin/explainshell
     ports:
