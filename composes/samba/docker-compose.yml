@@ -1,7 +1,7 @@
 version: "3.9"
 services:
 
-  samba:
+  main:
     container_name: samba
     image: ghcr.io/jtagcat/samba
     environment:

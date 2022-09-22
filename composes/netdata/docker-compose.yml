@@ -1,7 +1,7 @@
 version: "3.9"
 services:
 
-  netdata:
+  main:
     image: netdata/netdata:stable
     container_name: netdata
     hostname: ${hostTitle:-${HOST:-${USER:-Client}}}

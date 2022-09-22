@@ -1,7 +1,7 @@
 version: '3.9'
 services:
 
-  portainerAgent:
+  main:
     container_name: portainerAgent
     restart: unless-stopped
     volumes:

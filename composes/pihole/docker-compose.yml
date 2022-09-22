@@ -1,7 +1,7 @@
 version: "3.9"
 services:
 
-  pihole:
+  main:
     container_name: pihole
     image: pihole/pihole
     network_mode: host
