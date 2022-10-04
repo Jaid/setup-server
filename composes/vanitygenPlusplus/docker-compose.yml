@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+
+  main:
+    container_name: vanitygenPlusplus
+    image: jaidchen/vanitygen-plusplus:main
+    network_mode: none
+    environment:
+      currency: BTC
+      prefix: 1Test 1test
+    volumes:
+      - type: bind
+        source: ./volume/results
+        target: /results
