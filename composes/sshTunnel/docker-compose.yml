@@ -18,3 +18,4 @@ services:
       - type: bind
         source: ${vpsIdentity:?}
         target: /app/identity
+        read_only: true
