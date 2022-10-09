@@ -5,8 +5,7 @@ services:
     container_name: sshTunnel
     restart: unless-stopped
     network_mode: host
-    build:
-      context: src
+    image: jaidchen/ssh-tunnel:main
     environment:
       remoteHost: ${vpsHost:?}
       remoteUser: ${vpsUser:?}
