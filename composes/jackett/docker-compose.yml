@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+
+  main:
+    image: linuxserver/jackett
+    container_name: jackett
+    network_mode: container:gluetun
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
+    volumes:
+      - ./volume/config:/config
+      - /mnt/inbox:/downloads
+    restart: unless-stopped
