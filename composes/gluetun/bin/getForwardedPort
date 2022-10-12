@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -o errexit
+
+# requireComposeRunning gluetun
+
+: "${gluetunApiPort:=3200}"
+
+function requestForwardedPortFromApi() {
+  gluetunForwardedPort=$(curl --location --fail --silent --retry 10 localhost:$gluetunApiPort/v1/openvpn/portforwarded | jq --raw-output .port)
+  if [[ -z $gluetunForwardedPort ]] || [[ $gluetunForwardedPort = null ]] || [[ $gluetunForwardedPort -eq 0 ]]; then
+    return 1
+  else
+    export gluetunForwardedPort
+  fi
+}
+
+gluetunForwardedPort=$(curl --location --fail --silent --retry 10 localhost:$gluetunApiPort/v1/openvpn/portforwarded | jq --raw-output .port)
+retry requestForwardedPortFromApi
+if [[ -z "$gluetunForwardedPort" ]] || [[ "$gluetunForwardedPort" = "null" ]] || [[ "$gluetunForwardedPort" -eq 0 ]]; then
+  printf >&2 'Error: gluetun has no forwarded port\n'
+  exit 1
+else
+  printf '%s\n' "$gluetunForwardedPort"
+fi
