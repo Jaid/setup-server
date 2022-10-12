@@ -9,7 +9,7 @@ services:
       VPN_INTERFACE: tunVpn
       VPN_SERVICE_PROVIDER: private internet access
       VPN_TYPE: openvpn
-      PRIVATE_INTERNET_ACCESS_VPN_PORT_FORWARDING: on
+      PRIVATE_INTERNET_ACCESS_VPN_PORT_FORWARDING: enabled
       TZ: Europe/Berlin
       OPENVPN_USER: ${piaUser:?}
       OPENVPN_PASSWORD: ${piaPassword:?}
