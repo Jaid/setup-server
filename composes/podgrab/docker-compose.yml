@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+
+  main:
+    image: akhilrex/podgrab
+    container_name: podgrab
+    environment:
+      CHECK_FREQUENCY: 240
+    volumes:
+      - type: bind
+        source: ./volume/config
+        target: /config
+      - type: bind
+        source: ./volume/data
+        target: /assets
+    ports:
+      - 8030:8080
+    restart: unless-stopped
