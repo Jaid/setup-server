@@ -1,12 +1,10 @@
-version: "3.9"
+version: '3.9'
 services:
 
   main:
-    image: openhab/openhab
+    image: jaidchen/openhab
     container_name: openhab
-    ports:
-      - 5300:5300
-      - 5301:5301
+    network_mode: host
     restart: unless-stopped
     volumes:
       - type: bind
@@ -18,18 +16,16 @@ services:
         target: /etc/timezone
         read_only: true
       - type: bind
-        source: ./volume/data
+        source: ./volume/userdata
         target: /openhab/userdata
       - type: bind
-        source: ./volume/config
+        source: ./volume/conf
         target: /openhab/conf
       - type: bind
         source: ./volume/addons
         target: /openhab/addons
+      - type: bind
+        source: ./volume/influx
+        target: /influxdb
     environment:
       EXTRA_JAVA_OPTS: -Duser.timezone=Europe/Berlin
-      CRYPTO_POLICY: unlimited
-      USER_ID: 1000
-      GROUP_ID: 1000
-      OPENHAB_HTTP_PORT: "5300"
-      OPENHAB_HTTPS_PORT: "5301"
