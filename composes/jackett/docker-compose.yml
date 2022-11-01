@@ -10,6 +10,10 @@ services:
       PGID: 1000
       TZ: Europe/Berlin
     volumes:
-      - ./volume/config:/config
-      - /mnt/inbox:/downloads
+      - type: bind
+        source: ./volume/config
+        target: /config
+      - type: bind
+        source: /mnt/inbox
+        target: /downloads
     restart: unless-stopped
