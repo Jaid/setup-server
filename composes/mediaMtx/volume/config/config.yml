@@ -1,0 +1,6 @@
+api: yes
+apiAddress: 127.0.0.1:1554
+rtmpDisable: yes
+hlsDisable: yes
+webrtcDisable: yes
+protocols: tcp
