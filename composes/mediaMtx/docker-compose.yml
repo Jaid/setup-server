@@ -6,13 +6,14 @@ services:
     image: aler9/rtsp-simple-server
     restart: unless-stopped
     ports:
-      - 554:8554
+      - 554:554
+      - 555:555
     volumes:
       - type: bind
         source: ./volume/config/config.yml
         target: /rtsp-simple-server.yml
         read_only: true
       - type: bind
-        source: $HOME/bin
-        target: /externalBin
+        source: /usr/bin/ffmpeg
+        target: /bin/ffmpeg
         read_only: true
