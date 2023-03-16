@@ -11,6 +11,7 @@ services:
       - 1000:8080 # webapp
       - 1001:8086 # influxDB admin
     volumes:
+
       - type: bind
         source: /run/udev
         target: /run/udev
