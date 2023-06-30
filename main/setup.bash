@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o errexit -o pipefail -o xtrace
+set -o errexit -o pipefail
 
 function hasCommand {
   commandPath=$(command -v "$1" || true)
@@ -22,6 +22,9 @@ if [[ $githubToken =~ 000000000000000000000000000000000000 ]]; then
   printf >&2 'Error: $githubToken not changed\n'
   exit 1
 fi
+
+GITHUB_TOKEN=$githubToken
+export GITHUB_TOKEN
 
 mkdir --parents "$HOME/.cache"
 mkdir --parents "$HOME/.config"
