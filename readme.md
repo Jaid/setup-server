@@ -11,7 +11,7 @@ set -o errexit -o pipefail -o xtrace && DEBIAN_FRONTEND=noninteractive sudo apt-
 ### Edit config (optional)
 
 ```bash
-nano "$HOME/tmp/config.bash"
+nano "$HOME/tmp/config.bash" && cat "$HOME/tmp/config.bash"
 ```
 
 ### Run

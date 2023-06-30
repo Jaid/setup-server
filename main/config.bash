@@ -1,5 +1,3 @@
-#!/bin/bash
-
 githubToken=ghp_000000000000000000000000000000000000
 
 installCoolTools=0
