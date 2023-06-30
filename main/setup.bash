@@ -44,7 +44,6 @@ fi
 curl --location --retry 3 --fail --silent --show-error --header 'Cache-Control: no-cache' --header "Authorization: Bearer $GITHUB_TOKEN" https://raw.githubusercontent.com/Jaid/scripts/dist/bin/downloadJaidScripts --output "$userBinFolder/downloadJaidScripts"
 chmod +x "$userBinFolder"/*
 bash -o xtrace "$userBinFolder/downloadJaidScripts"
-
 fixTimezone
 user=${USER:-$(whoami)}
 if [[ -d /etc/sudoers.d ]] && [[ ! -f /etc/sudoers.d/$user ]]; then
