@@ -8,10 +8,10 @@ function hasCommand {
   fi
 }
 
-userTempFolder=${userTempFolder:-$HOME/tmp}
+userTempFolder=${userTempFolder:-$HOME/temp}
 
 source "$userTempFolder/config.bash"
-export githubToken && export installCoolTools && export installGh && export installCargo && export installSd && export installJyt && export installLfs && export installRustScan && export installExa && export installRg && export installFd && export installGrc && export installDocker && export installZsh && export downloadAuthorizedKeys && export downloadBashrc && export downloadPath && export downloadEnv && export downloadSecrets && export downloadHtoprc && export downloadGitconfig && export downloadLocaleGen && export downloadDockerConfig && export userTempFolder && export userBinFolder && export otherReposFolder
+export githubToken && export installCoolTools && export installGh && export installCargo && export installSd && export installJyt && export installLfs && export installRustScan && export installExa && export installRg && export installFd && export installGrc && export installDocker && export installZsh && export downloadAuthorizedKeys && export downloadBashrc && export downloadPath && export downloadEnv && export downloadSecrets && export downloadHtoprc && export downloadGitconfig && export downloadLocaleGen && export downloadDockerConfig && export userTempFolder && export userBinFolder && export foreignReposFolder
 
 if [[ -z $githubToken ]]; then
   printf >&2 'Error: $githubToken not set\n'
@@ -29,17 +29,17 @@ export GITHUB_TOKEN
 mkdir --parents "$HOME/.cache"
 mkdir --parents "$HOME/.config"
 mkdir --parents "$userBinFolder"
-mkdir --parents "$otherReposFolder"
+mkdir --parents "$foreignReposFolder"
 
-PATH=$PATH:$otherReposFolder/scripts/bin:$HOME/.cargo/bin
+PATH=$PATH:$foreignReposFolder/scripts/bin:$HOME/.cargo/bin
 export PATH
 
-mkdir --parents "$otherReposFolder"
-if [[ -d $otherReposFolder/scripts ]]; then
-  rm -rf "$otherReposFolder/scripts"
+mkdir --parents "$foreignReposFolder"
+if [[ -d $foreignReposFolder/scripts ]]; then
+  rm -rf "$foreignReposFolder/scripts"
 fi
-if [[ -d $otherReposFolder/setup-server ]]; then
-  rm -rf "$otherReposFolder/setup-server"
+if [[ -d $foreignReposFolder/setup-server ]]; then
+  rm -rf "$foreignReposFolder/setup-server"
 fi
 curl --location --retry 3 --fail --silent --show-error --header 'Cache-Control: no-cache' --header "Authorization: Bearer $GITHUB_TOKEN" https://raw.githubusercontent.com/Jaid/scripts/dist/bin/downloadJaidScripts --output "$userBinFolder/downloadJaidScripts"
 chmod +x "$userBinFolder"/*

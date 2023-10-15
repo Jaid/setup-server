@@ -1,7 +1,7 @@
 githubToken=ghp_000000000000000000000000000000000000
 
 installCoolTools=0
-installGh=0
+installGh=1
 installCargo=1
 installSd=0
 installJyt=1
@@ -24,6 +24,6 @@ downloadGitconfig=1      # https://gist.github.com/Jaid/b81a839a438693a86718d3bb
 downloadLocaleGen=1      # https://gist.github.com/Jaid/eac9757fdb899067a64f5880524823d9
 downloadDockerConfig=1   # https://gist.github.com/Jaid/3d590adcd183762ad7edffa5eff82c26
 
-userTempFolder=$HOME/tmp
+userTempFolder=$HOME/temp
 userBinFolder=$HOME/x
-otherReposFolder=$HOME/git/foreign
+foreignReposFolder=$HOME/git/.foreign
