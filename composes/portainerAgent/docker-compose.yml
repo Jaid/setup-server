@@ -2,6 +2,7 @@ version: '3.9'
 services:
 
   main:
+    image: portainer/agent:2.19.1
     container_name: portainerAgent
     restart: unless-stopped
     volumes:
@@ -21,4 +22,3 @@ services:
       EDGE: 1
       EDGE_INSECURE_POLL: 0
     env_file: .env
-    image: portainer/agent
