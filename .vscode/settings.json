@@ -4,5 +4,10 @@
     ".github/workflows/publishPackage.yml",
     ".github/workflows/validate.yml",
     ".github/workflows/build.yml"
-  ]
+  ],
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/schema-cloud-config-v1.json": [
+      "cloudconfig.yml"
+    ]
+  }
 }

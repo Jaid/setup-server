@@ -1,15 +1,13 @@
 #cloud-config
-hostname: jaidMain
+hostname: arm
 timezone: Europe/Berlin
 users:
   - name: jaid
     ssh_authorized_keys:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDQKcd+qJy2cHMXykMft1F8xhIsIP65aQY7TYyiS8xTpUxM2er6WiJsOk6vqPC2UzEgNeDsNEc831XplS52qFFMQP1zWQdxErVyrQXs8pD2xRRSdBBras1CXgY3DJTfvpCU80VEmTawtycJ2zaXa305KUqzNOTbvMH4rIfP27M22C2LJc6W3Ythp/lme2B1DvPIZ3QrgI0jh6M203IU+rVY/SKmQAB9r9NqRuzmJMpowi4gLePaL7665NrQNty+e6g1HCtAPj6ohqUmfVEgOc+63eV7ysgwnFWMiNLZdoUc55oQBi6K4X2BS5kaU0CL3/eSu/1LI/IBEOXEO4mVZ4ipmMCvR1X5jfSsZ6qRUD9IMAOQdz4b9hVamkt9al15xlI7bsD3pl39De2RcEiA25nYimqzw5qdXo5QywrjQt0qXfRUzvkugggg9tuNJvh9CxTeaS8+wxEzkHi+3oIjo+ACbmGnItM66LYARQ/dsqdmEcsoBLAS6ENodIaLBWJuBcYNZ2j2je/wx6bRvvYx6+MFjhxnVU/lYvvqALcZhDfJ19boTYERxqTQviYEWnoJrmR2uw00fGvYRwlFKc65UYQgu0EnoUISo7d2dezdGbO7SiEERaKSNO8oyPSrcAjiZBmFHhy7vBUGkAo7FwRW4ABSBxoRH3PCmWgI+y/sqX7wHQ== jaid.jsx+hub@gmail.com"
-    passwd: $6$XY68BHvd$PgDri7Yo1ZMNFSWmnOoHXDgxBiPsl5rA8Inwe7CSX5StxXHeOp78IuL31DrFxfD03TGCI58Ll0ntOyYEoHonZ/
-    lock_passwd: false
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCPZ0ZiP841mcBLmSEU4c8zHkkYzpkBUlNPe6vJTCJz vps
+    passwd: $6$EBJ1nzeuchahbpUx$Noktrb0iua3.MjRs6ji6BJA4WgD39/da7jtgVuYbZTyrh4nmEzKvTliXxi4eMs2LwBx74kpkkbiXD94SHZAUe/
     sudo: "ALL=(ALL) NOPASSWD: ALL"
-    shell: /usr/bin/zsh
-ssh_genkeytypes: rsa
+ssh_genkeytypes: [ed25519]
 apt: # See https://stackoverflow.com/a/71408252
   conf: |
     APT {
@@ -28,80 +26,8 @@ apt: # See https://stackoverflow.com/a/71408252
     };
 package_upgrade: true
 packages:
-  - build-essential
-  - subversion
-  - libcppunit-dev
-  - time
-  - g++
-  - gcc
-  - ntp
-  - libz-dev
-  - comerr-dev
-  - pkg-config
-  - texinfo
-  - libcurl4
-  - libcurl4-openssl-dev
-  - libtool
-  - libssl-dev
-  - libncurses5-dev
-  - ncurses-term
-  - libsigc++-2.0-dev
-  - libcppunit-dev
-  - libncursesw5-dev
-  - libx264-dev
-  - libnuma-dev
-  - libvpx-dev
-  - libmp3lame-dev
-  - libopus-dev
-  - libass-dev
-  - autoconf
-  - libtool
-  - x264
-  - vpx-tools
-  - libfreetype6-dev
-  - libvorbis-dev
-  - automake
-  - git-core
-  - libsdl2-dev
-  - libva-dev
-  - libvdpau-dev
-  - libxcb1-dev
-  - libxcb-shm0-dev
-  - libxcb-xfixes0-dev
-  - imagemagick
-  - gettext
-  - cmake
-  - yasm
-  - python3-pip
-  - psmisc
-  - software-properties-common
   - jq
+  - git
 manage_resolv_conf: true
 resolv_conf:
   nameservers: ["1.1.1.1", "1.0.0.1"] # v6: 2606:4700:4700::1111 2606:4700:4700::1001
-write_files:
-  - path: /usr/local/bin/downloadJaidScript
-    permissions: 0755
-    owner: root
-    content: |
-      #!/usr/bin/env bash
-      target="/usr/local/bin/$1"
-      sudo curl --fail --silent --header "Cache-Control: no-cache, no-store" --location --retry 3 "https://raw.githubusercontent.com/Jaid/setup-server/master/commands/$1.bash?$(date +%s)" --output "$target"
-      sudo chmod +x "$target"
-      echo Added "$target"
-  - path: /etc/network/interfaces.d/60-jaid.cfg
-    permissions: 0755
-    owner: root
-    content: |
-      auto eth0:1
-      iface eth0:1 inet static
-        address 116.203.165.91
-        netmask 32
-runcmd:
-  - downloadJaidScript setupRoot
-  - DEBIAN_FRONTEND=noninteractive PS4='[:\$LINENO] ' bash -e -x $bashFile > /var/log/setupRoot.log 2>&1 /usr/local/bin/setupRoot
-  - rm /home/jaid/setup2.bash
-power_state:
-  delay: 1
-  mode: reboot
-  message: Rebooting machine
