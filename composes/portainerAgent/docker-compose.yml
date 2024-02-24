@@ -2,16 +2,13 @@ version: '3.9'
 services:
 
   main:
-    image: portainer/agent:2.19.1
     container_name: portainerAgent
+    image: portainer/agent:2.19.4-alpine
     restart: unless-stopped
     volumes:
       - type: bind
         source: /var/run/docker.sock
         target: /var/run/docker.sock
-      - type: bind
-        source: /var/lib/docker/volumes
-        target: /var/lib/docker/volumes
       - type: bind
         source: /
         target: /host
