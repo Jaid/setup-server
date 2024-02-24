@@ -5,7 +5,7 @@ mkdir --parents dist
 
 cp -r composes dist/composes
 cp -r services dist/services
-cp -r timers dist/timers
+# cp -r timers dist/timers
 
 outputFolder="dist/bin"
 mkdir --parents "$outputFolder"
