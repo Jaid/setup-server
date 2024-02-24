@@ -20,7 +20,6 @@ services:
       - /dev/net/tun:/dev/net/tun
     ports:
       - 3200:8000 # gluetun api
-      - 9000:9000 # ?
     volumes:
       - type: bind
         source: ./volume/data

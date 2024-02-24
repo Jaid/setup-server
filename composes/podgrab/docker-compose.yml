@@ -2,7 +2,7 @@ version: '3.9'
 services:
 
   main:
-    image: akhilrex/podgrab
+    image: akhilrex/podgrab:1.0.0
     container_name: podgrab
     environment:
       CHECK_FREQUENCY: 60

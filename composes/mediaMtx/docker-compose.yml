@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+
+  main:
+    container_name: mediaMtx
+    image: aler9/rtsp-simple-server:v0.21.6-arm64v8-rpi
+    restart: unless-stopped
+    ports:
+      - 554:554
+      - 555:555
+    entrypoint: [ '/bin/sh', '-c' ]
+    command:
+      [
+        'DEBIAN_FRONTEND=noninteractive apt-get --option Acquire::Retries=60 --option Acquire::http::Timeout=180 --yes install ffmpeg && /rtsp-simple-server'
+      ]
+    volumes:
+      - type: bind
+        source: ./volume/config/config.yml
+        target: /rtsp-simple-server.yml
+        read_only: true

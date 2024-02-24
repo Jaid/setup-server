@@ -29,3 +29,23 @@ services:
         target: /influxdb
     environment:
       EXTRA_JAVA_OPTS: -Duser.timezone=Europe/Berlin
+
+  tunnel:
+    depends_on:
+      - main
+    container_name: openhabRemoteTunnel
+    restart: unless-stopped
+    network_mode: host
+    image: jaidchen/ssh-tunnel
+    environment:
+      remoteHost: ${vpsHost:?}
+      remoteUser: ${vpsUser:?}
+      mainLocal: 5300
+      mainRemote: 15300
+      languageLocal: 5007
+      languageRemote: 15007
+    volumes:
+      - type: bind
+        source: ${vpsIdentity:?}
+        target: /app/identity
+        read_only: true

@@ -1,0 +1,7 @@
+api: yes
+rtmpDisable: yes
+hlsDisable: yes
+webrtcDisable: yes
+protocols: [tcp]
+rtspAddress: :554
+apiAddress: :555
