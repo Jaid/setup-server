@@ -1,9 +1,9 @@
-version: "3.9"
+version: '3.9'
 services:
 
   main:
-    image: ghcr.io/flaresolverr/flaresolverr
-    container_name: flaresolverr
+    image: flaresolverr/flaresolverr:v3.3.15 # https://hub.docker.com/r/flaresolverr/flaresolverr/tags?name=v3.3.15
+    container_name: flareSolverr
     environment:
       LOG_LEVEL: info
     ports:

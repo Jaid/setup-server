@@ -2,7 +2,7 @@ version: '3.9'
 services:
 
   main:
-    image: linuxserver/jackett:0.21.1018
+    image: linuxserver/jackett:0.21.1835 # https://hub.docker.com/r/linuxserver/jackett/tags?name=0.21.1835
     container_name: jackett
     network_mode: container:gluetun
     environment:

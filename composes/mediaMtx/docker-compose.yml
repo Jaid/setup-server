@@ -3,7 +3,7 @@ services:
 
   main:
     container_name: mediaMtx
-    image: aler9/rtsp-simple-server:v0.21.6-arm64v8-rpi
+    image: bluenviron/mediamtx:1.5.1 # https://hub.docker.com/r/bluenviron/mediamtx/tags?name=1.5.1
     restart: unless-stopped
     ports:
       - 554:554
