@@ -3,7 +3,7 @@ services:
 
   main:
     container_name: portainerAgent
-    image: portainer/agent:2.19.4-alpine
+    image: portainer/agent:2.19.4-alpine # https://hub.docker.com/r/portainer/agent/tags?name=2.19.4-alpine
     restart: unless-stopped
     volumes:
       - type: bind

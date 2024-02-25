@@ -1,28 +1,17 @@
-version: "3.9"
+version: '3.9'
 services:
 
   main:
     container_name: samba
-    image: ghcr.io/jtagcat/samba
+    image: crazymax/samba:4.18.9 # https://hub.docker.com/r/crazymax/samba/tags?name=4.18.9
     environment:
       TZ: Europe/Berlin
-      NMBD: "false"
-      RECYCLE: "true"
-      USERID: "1000"
-      GROUPID: "1000"
-      # <name;/path>[;browse;readonly;guest;users;admins;writelist;comment]
-      SHARE1: home;/mnt/home;yes;no;no;${sambaUser}
-      # <username;password>[;ID;group;GID]
-      USER1: ${sambaUser:?};${sambaPassword:?}
-    network_mode: host
+      SAMBA_HOSTS_ALLOW: 127.0.0.0/8 10.0.0.0/24
+      SAMBA_SERVER_STRING: ${HOSTNAME:?}
+      SAMBA_LOG_LEVEL: 2
     ports:
-      - 139:139/tcp
-      - 445:445/tcp
-    tmpfs:
-      - /tmp
+      - 445:445
     restart: unless-stopped
-    stdin_open: true
-    tty: true
     volumes:
       - type: bind
         source: /home/${USER:?}
