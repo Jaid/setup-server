@@ -4,9 +4,10 @@ services:
   main:
     container_name: scrutiny
     restart: unless-stopped
-    image: ghcr.io/analogj/scrutiny:v0.7.2-omnibus # https://github.com/AnalogJ/scrutiny/pkgs/container/scrutiny/versions?filters[version_type]=tagged
+    image: ghcr.io/analogj/scrutiny:v0.7.2-omnibus # https://github.com/analogj/scrutiny/pkgs/container/scrutiny/versions?filters[version_type]=tagged
     cap_add:
       - SYS_RAWIO
+      - SYS_ADMIN
     ports:
       - 1000:8080 # webapp
       - 1001:8086 # influxDB admin
@@ -21,3 +22,5 @@ services:
       - type: bind
         source: ./volume/influx
         target: /opt/scrutiny/influxdb
+    devices:
+      - /dev/sda
