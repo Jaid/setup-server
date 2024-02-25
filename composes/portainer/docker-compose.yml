@@ -3,8 +3,11 @@ services:
 
   main:
     container_name: portainer
+    image: portainer/portainer-ee:linux-arm64-2.19.4 # https://hub.docker.com/r/portainer/portainer-ee/tags?name=linux-arm64-2.19.4
+    env_file: .env
     ports:
-      - 9443:9000
+      - 9010:9000
+      - 9011:8000
     restart: unless-stopped
     volumes:
       - type: bind
@@ -13,4 +16,3 @@ services:
       - type: bind
         source: ./volume/data
         target: /data
-    image: portainer/portainer-ce
